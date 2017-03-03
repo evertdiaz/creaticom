@@ -1,6 +1,10 @@
 (function() {
   $(document).ready(function() {
-    return alert('holaz');
+    return console.log('p');
+  });
+
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true
   });
 
 }).call(this);
