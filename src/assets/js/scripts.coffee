@@ -1,3 +1,3 @@
-$(document).ready(() ->
-	alert('holaz')
-)
+// $(document).ready(() ->
+// 	alert('holaz')
+// )
