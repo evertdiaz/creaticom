@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  a(href="/") INICIO
+  h2 login
+  form
+    input(type='text' placeholder='usuario')
+    input(type='password' placeholder='contraseña')
+    input(type='submit' value='enviar')
+  h2 Registro
+  form
+    input(type='text' placeholder='usuario')
+    input(type='email' placeholder='email')
+    input(type='password' placeholder='contraseña')   
+    input(type='submit' value='enviar')
+  br
+  a(href="/perfil") Perfil

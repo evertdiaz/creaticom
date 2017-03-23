@@ -4,7 +4,9 @@
   "description": "Creaticom, la plataforma para encontrar artistas.",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "lint": "standard --verbose | snazzy",
+    "test": "mocha | snazzy",
+    "start": "npm run lint && rm public/css/*.css && sudo nodemon"
   },
   "repository": {
     "type": "git",
@@ -24,12 +26,23 @@
   },
   "homepage": "https://github.com/evertdz/creaticom#readme",
   "dependencies": {
+    "babel": "^6.23.0",
     "body-parser": "^1.17.1",
     "cors": "^2.8.1",
     "express": "^4.15.2",
+    "jade": "^1.11.0",
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.9.1",
     "morgan": "^1.8.1",
-    "path": "^0.12.7"
+    "nib": "^1.1.2",
+    "path": "^0.12.7",
+    "stylus": "^0.54.5"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.2.0",
+    "snazzy": "^6.0.0",
+    "standard": "^9.0.2"
   }
 }
