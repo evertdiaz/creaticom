@@ -7,7 +7,10 @@ var morgan = require('morgan')
 var cors = require('cors')
 var stylus = require('stylus')
 var app = express()
+
+// Configuraciones
 var compileStylus = require('./utils/stylus')
+var dbConfig = require('./config/dbConfig')
 
 // Middlewares Iniciales
 app.use(bp.urlencoded({ extended: false }))
@@ -33,7 +36,7 @@ var auth = require('./routes/auth')
 var obra = require('./routes/obra')
 
 // BD
-mongoose.connect('mongodb://localhost/testdb')
+mongoose.connect(dbConfig.url)
 
 // Rutas
 app.use('/', landing)
