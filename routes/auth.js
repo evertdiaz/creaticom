@@ -1,4 +1,5 @@
 var express = require('express')
+var request = require('request')
 var router = express()
 var user = require('../models/user')
 
@@ -7,17 +8,17 @@ router.get('/', function (req, res) {
 })
 
 router.post('/signup', (req, res) => {
-  console.log(req.body)
-  var newUser = user()
-  newUser.name = req.body.name
-  newUser.email = req.body.email
-  newUser.password = req.body.password
-  if (req.body.isArtist == 1) newUser.isArtist = true 
-  else newUser.isArtist = false
-  newUser.save((err, savedUser) => {
-    if (err) res.send(err)
-    res.status(200).send(savedUser)
+  if (req.body.isArtist == 1) req.body.isArtist = true 
+  else req.body.isArtist = false
+  request.post('http://localhost:3000/api/user',{json: req.body}, (error, response, body) => {
+    if(error) return res.status(500).send(error)
+    if(response.statusCode != 200) return res.send(response.body)
+    res.status(200).send('ACA METEMOS COOKIES')
   })
+})
+
+router.post('signin', (req,res) => {
+  res.send('signing')
 })
 
 module.exports = router

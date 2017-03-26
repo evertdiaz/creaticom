@@ -19,18 +19,21 @@ router.post('/category', (req, res) => {
 })
 
 router.post('/user', (req, res) => {
-  newUser = new user()
-  newUser.username = req.body.username
-  newUser.name = req.body.name
-  newUser.bio = req.body.bio
-  newUser.email = req.body.email
-  newUser.password = req.body.password
-  newUser.phone = req.body.phone
-  newUser.isArtist = req.body.isArtist
-  newUser.obras = req.body.obras || []
-  newUser.save((err, savedUser) => {
-    if (err) res.send(err)
-    res.send(savedUser)
+  user.findOne({$or:[ {'username': req.body.username}, {'email': req.body.email}]}, (err,foundUser) => {
+    if(foundUser) return res.status(402).send({ message: 'Usuario ya existe' })
+    newUser = new user()
+    newUser.username = req.body.username
+    newUser.name = req.body.name
+    newUser.bio = req.body.bio
+    newUser.email = req.body.email
+    newUser.password = req.body.password
+    newUser.phone = req.body.phone
+    newUser.isArtist = req.body.isArtist
+    newUser.obras = req.body.obras || []
+    newUser.save((err, savedUser) => {
+      if (err) return res.status(404).send(err)
+      res.status(200).send({ message: 'Usuario Guardado' })
+    })
   })
 })
 
@@ -43,7 +46,7 @@ router.post('/obra', (req, res) => {
  newObra.author = req.body.author
  newObra.category = req.body.category
  newObra.save((err, obraSaved) => {
-  if (err) res.send(err)
+  if (err) return res.send(err)
   // El valor del id reemplazarlo por el que viene en el req
   user.findOne({_id: '58d811f36405471ac8f9ad86'}, (err, foundUser) => {
     foundUser.obras = foundUser.obras.concat(obraSaved._id)

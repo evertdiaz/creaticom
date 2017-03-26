@@ -13,6 +13,6 @@
 - Añadir Comentarios
 
 ****EXTRAS TECH
-- uso de JWT para el API
+- uso de JWT para el API con USUARIO y CON LA WEB (Para que solo la web pueda hacer querys al API)
 - GraphQL
 - Dockers
