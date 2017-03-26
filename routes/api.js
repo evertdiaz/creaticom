@@ -58,4 +58,13 @@ router.post('/obra', (req, res) => {
  })
 })
 
+router.post('/auth', (req, res) => {
+  console.log(req.body)
+  user.findOne({$or:[{'username': req.body.user}, {'email': req.body.user}], 'password': req.body.password}, (err, foundUser) => {
+    if(err) return res.status(500).send(err)
+    if(!foundUser) return res.status(500).send({message: 'Usuario o contraseña Invalido'})
+    res.status(200).send(foundUser)
+  })
+})
+
 module.exports = router

@@ -13,6 +13,7 @@
 - Añadir Comentarios
 
 ****EXTRAS TECH
+- Fusionar con la rama del frontend, desde el repo del frontend, poner todo en public agregar rama remota la del back, hacer pull, fusionar y luego hacer push a github.
 - uso de JWT para el API con USUARIO y CON LA WEB (Para que solo la web pueda hacer querys al API)
 - GraphQL
 - Dockers

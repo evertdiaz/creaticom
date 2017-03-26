@@ -3,10 +3,11 @@ extends ../layout
 block content
   a(href="/") INICIO
   h2 Sign In
-  form
-    input(type='text' placeholder='usuario')
-    input(type='password' placeholder='contraseña')
+  form(action='/auth/signin', method='POST')
+    input(type='text' placeholder='user' name='user')
+    input(type='password' placeholder='password' name='password')
     input(type='submit' value='enviar')
+
   h2 Sign Up
   form(action='/auth/signup', method='POST')
     input(type='text' placeholder='usuario' name='username')
