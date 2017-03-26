@@ -32,7 +32,7 @@ router.post('/user', (req, res) => {
     newUser.obras = req.body.obras || []
     newUser.save((err, savedUser) => {
       if (err) return res.status(404).send(err)
-      res.status(200).send({ message: 'Usuario Guardado' })
+      res.status(200).send(savedUser)
     })
   })
 })
