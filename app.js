@@ -6,6 +6,8 @@ const bp = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
 const stylus = require('stylus')
+const cookieParser = require('cookie-parser')
+const cookieSession = require('cookie-session')
 const app = express()
 
 // Configuraciones
@@ -17,6 +19,8 @@ app.use(bp.urlencoded({ extended: false }))
 app.use(bp.json())
 app.use(morgan('dev'))
 app.use(cors())
+app.use(cookieParser())
+app.use(cookieSession({name: 'session', keys: ['llave-1', 'llave-2']}))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 app.use(stylus.middleware(

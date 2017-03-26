@@ -25,9 +25,14 @@ router.post('/signin', (req,res) => {
     if (error) return res.send(error)
     // Aca deberia meterse una vista y enviar como data el response.body (Estilo openfuture)
     if (response.statusCode != 200) return res.send(response.body)
-    // A partir de acá implementar sesion en cookie
-    res.send(response.body)
+    req.session.user_id = response.body._id
+    res.send(req.session.user_id)
   })
+})
+
+router.post('/logout', (req, res) => {
+  req.session = null
+  res.redirect('/')
 })
 
 module.exports = router

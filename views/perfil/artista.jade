@@ -4,3 +4,8 @@ block content
   a(href="/") INICIO
   h3 Aca MI PERFIL
   a(href="/perfil/obras") Ver MIS OBRAS
+  br
+  br
+  form(action='/auth/logout', method='POST')
+    input.btn.btn-info.btn-close(type='submit', value='Cerrar Sesion')
+    button.btn.btn-edicion Editar 
