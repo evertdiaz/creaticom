@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  a(href="/") INICIO
+  a(href="/artista/all") Artistas
+  a(href="/obra/all") Obras
+  a(href="/auth") Login/Registro
+  each thing in data
+    h3 Se ha Buscado: #{thing}
