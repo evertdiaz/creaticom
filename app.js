@@ -1,12 +1,12 @@
 // Dependencias
-var express = require('express')
-var path = require('path')
-var mongoose = require('mongoose')
-var bp = require('body-parser')
-var morgan = require('morgan')
-var cors = require('cors')
-var stylus = require('stylus')
-var app = express()
+const express = require('express')
+const path = require('path')
+const mongoose = require('mongoose')
+const bp = require('body-parser')
+const morgan = require('morgan')
+const cors = require('cors')
+const stylus = require('stylus')
+const app = express()
 
 // Configuraciones
 var compileStylus = require('./utils/stylus')
