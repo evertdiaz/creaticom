@@ -37,6 +37,13 @@ router.post('/user', (req, res) => {
   })
 })
 
+router.get('/user/:id', (req, res) => {
+  user.findOne({_id: req.params.id}, (err, foundUser) => {
+    if (err) return res.status(500).send(err)
+    res.status(200).send(foundUser)
+  })
+})
+
 router.post('/obra', (req, res) => {
  var newObra = new obra()
  newObra.name = req.body.name

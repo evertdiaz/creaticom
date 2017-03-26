@@ -2,7 +2,7 @@ var express = require('express')
 var router = express()
 var isAuth = require('../middlewares/isAuth')
 
-router.get('/', isAuth, function (req, res) {
+router.get('/', isAuth, function (req, res, next) {
   // Aca variará por el middleware de una a otra vista
   res.render('perfil/artista', { title: 'Perfil' })
   // res.render('perfil/usuario', { title: 'Perfil' })

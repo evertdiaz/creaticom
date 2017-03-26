@@ -1,7 +1,7 @@
 var request = require('request')
 module.exports = (req, res, next) => {
   if (!req.session.user_id) {
-    res.redirect('/auth')
+    next()
   } else {
     // Enviar el req.session.user_id al API y guardar el modelo general
     request('http://localhost:3000/api/user/'+req.session.user_id, (error, response, body) => {
@@ -11,9 +11,7 @@ module.exports = (req, res, next) => {
         return res.redirect('/')
       }
       res.locals = { user: JSON.parse(body) }
-      next()
+      res.redirect('/perfil')
     })
   }
 }
-
-

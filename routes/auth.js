@@ -2,8 +2,9 @@ var express = require('express')
 var request = require('request')
 var router = express()
 var user = require('../models/user')
+var noAuth = require('../middlewares/noAuth')
 
-router.get('/', function (req, res) {
+router.get('/', noAuth, function (req, res, next) {
   res.render('auth/index', { title: 'Ingresar' })
 })
 
@@ -20,7 +21,6 @@ router.post('/signup', (req, res) => {
 })
 
 router.post('/signin', (req,res) => {
-  console.log(req.body)
   request.post('http://localhost:3000/api/auth', {json: req.body}, (error, response, body) => {
     if (error) return res.send(error)
     // Aca deberia meterse una vista y enviar como data el response.body (Estilo openfuture)
