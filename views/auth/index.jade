@@ -2,16 +2,18 @@ extends ../layout
 
 block content
   a(href="/") INICIO
-  h2 login
+  h2 Sign In
   form
     input(type='text' placeholder='usuario')
     input(type='password' placeholder='contraseña')
     input(type='submit' value='enviar')
-  h2 Registro
-  form
-    input(type='text' placeholder='usuario')
-    input(type='email' placeholder='email')
-    input(type='password' placeholder='contraseña')   
+  h2 Sign Up
+  form(action='/auth/signup', method='POST')
+    input(type='text' placeholder='usuario' name='username')
+    input(type='email' placeholder='email' name='email')
+    input(type='checkbox' value=1 name='isArtist')
+    |  I have a car
+    input(type='password' placeholder='contraseña' name='password')   
     input(type='submit' value='enviar')
   br
   a(href="/perfil") Perfil
