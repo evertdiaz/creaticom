@@ -1,4 +1,4 @@
-extends ../layout
+extends ../../layout
 
 block content
   a(href="/") INICIO
@@ -9,6 +9,7 @@ block content
   br
   each thing in data
     h1= thing.name
-    h3= thing.bio
-    h3= thing.email
-    a(href="/artista/#{thing.username}") Ver Perfil
+    h3= thing.description
+    h3= thing.month
+    h3= thing.year
+    a(href="/obra/#{thing._id}") Ver Detalle

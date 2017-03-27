@@ -18,6 +18,12 @@ router.post('/category', (req, res) => {
   })
 })
 
+router.get('/users', (req, res) => {
+  User.find((err, foundUsers) => {
+    res.send(foundUsers)
+  })
+})
+
 router.post('/user', (req, res) => {
   User.findOne({$or: [{'username': req.body.username}, {'email': req.body.email}]}, (err, foundUser) => {
     if (err) return res.send(err)
@@ -135,6 +141,20 @@ router.get('/category', (req, res) => {
   Category.find((err, foundCategories) => {
     if (err) return res.send(err)
     res.status(200).send(foundCategories)
+  })
+})
+
+router.get('/search/artist', (req, res) => {
+  User.find({$text: {$search: req.body.query}}, (err, foundUsers) => {
+    if (err) return res.send(err)
+    res.send(foundUsers)
+  })
+})
+
+router.get('/search/obra', (req, res) => {
+  Obra.find({$text: {$search: req.body.query}}, (err, foundObras) => {
+    if (err) return res.send(err)
+    res.send(foundObras)
   })
 })
 

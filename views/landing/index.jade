@@ -5,4 +5,9 @@ block content
   a(href="/artista/all") Artistas
   a(href="/obra/all") Obras
   a(href="/auth") Login/Registro
-  a(href="/search?query=test") Buscar "TEST"
+  form(action="/search/obra", method="GET")
+    input(type="text" name="query" placeholder="Buscar Obra")
+    input(type="submit" value="BUSCAR")
+  form(action="/search/artist", method="GET")
+    input(type="text" name="query" placeholder="Buscar artista")
+    input(type="submit" value="BUSCAR")
