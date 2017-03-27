@@ -159,7 +159,7 @@ router.get('/category', (req, res) => {
 })
 
 router.get('/search/artist', (req, res) => {
-  User.find({$text: {$search: req.body.query}}, (err, foundUsers) => {
+  User.find({$text: {$search: req.body.query}, isArtist: true}, (err, foundUsers) => {
     if (err) return res.send(err)
     res.send(foundUsers)
   })
@@ -174,7 +174,7 @@ router.get('/search/obra', (req, res) => {
 
 router.get('/artistas', (req, res) => {
   User
-  .find()
+  .find({isArtist: true})
   .populate({
     path: 'obras',
     populate: {path:'category'}

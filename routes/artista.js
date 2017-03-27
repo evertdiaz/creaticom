@@ -11,7 +11,10 @@ router.get('/all', (req, res) => {
 
 router.get('/:username', (req, res) => {
   request(apiURL + '/artista/' + req.params.username, {json: req.body}, (error, response, body) => {
-    res.render('artista/single', { data: response.body, title: 'Artista ' + req.params.username })  
+    if (error) return res.send(error)
+    if(response.body.isArtist) res.render('artista/single', { data: response.body, title: 'Artista ' + req.params.username })  
+    else res.render('artista/single', { data: {alert: 'No existe Artista'}, title: 'Artista ' + req.params.username })  
+    
   })
 })
 

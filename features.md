@@ -13,6 +13,9 @@
 * Crear todo lo del usuario normal (noArtist)
 * Mejorar Middleware de sesion para no consultar a la BD
 - Añadir validacion para que el username sea único
+* No dejar que se vea perfil de usuario No Artista
+* En las busquedas de usuarios exceptuar los que no sean Artistas
+* Exceptuar los noArtist en artistas/all
 - Crear el sistema de imagenes para las obras, subida y muestra
 - Crear el sistema de subida de imagen de perfil de artista
 - Agregar Indexacion desde mongoose (Por ahora se hace directo en la BD bd.collection.createIndex({campo:"texto"}))
