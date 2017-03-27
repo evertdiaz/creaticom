@@ -13,5 +13,5 @@ module.exports = mongoose.model('user', {
   fanpage: String,
   portafolio: String,
   web: String,
-  obras: [{ type : Schema.ObjectId, ref: 'obra' }]
+  obras: [{ type: Schema.ObjectId, ref: 'obra' }]
 })

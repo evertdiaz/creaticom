@@ -52,5 +52,8 @@
     "mocha": "^3.2.0",
     "snazzy": "^6.0.0",
     "standard": "^9.0.2"
+  },
+  "standard": {
+    "ignore": ["public/*"]
   }
 }

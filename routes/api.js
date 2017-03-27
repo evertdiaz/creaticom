@@ -1,15 +1,15 @@
 var express = require('express')
 var router = express.Router()
-var category = require('../models/category')
-var user = require('../models/user')
-var obra = require('../models/obra')
+var Category = require('../models/category')
+var User = require('../models/user')
+var Obra = require('../models/obra')
 
 router.get('/', function (req, res) {
   res.send('Welcome')
 })
 
 router.post('/category', (req, res) => {
-  newCategory = new category()
+  var newCategory = new Category()
   newCategory.name = req.body.name
   newCategory.description = req.body.description
   newCategory.save((err, savedCategory) => {
@@ -19,9 +19,10 @@ router.post('/category', (req, res) => {
 })
 
 router.post('/user', (req, res) => {
-  user.findOne({$or:[ {'username': req.body.username}, {'email': req.body.email}]}, (err,foundUser) => {
-    if(foundUser) return res.status(402).send({ message: 'Usuario ya existe' })
-    newUser = new user()
+  User.findOne({$or: [{'username': req.body.username}, {'email': req.body.email}]}, (err, foundUser) => {
+    if (err) return res.send(err)
+    if (foundUser) return res.status(402).send({ message: 'Usuario ya existe' })
+    var newUser = new User()
     newUser.username = req.body.username || ''
     newUser.name = req.body.name || ''
     newUser.bio = req.body.bio || ''
@@ -41,7 +42,7 @@ router.post('/user', (req, res) => {
 })
 
 router.post('/user/update', (req, res) => {
-  user.findOne({_id: req.body.id}, (err, foundUser) => {
+  User.findOne({_id: req.body.id}, (err, foundUser) => {
     if (err) return res.send(err)
     foundUser.username = req.body.username
     foundUser.name = req.body.name
@@ -52,44 +53,45 @@ router.post('/user/update', (req, res) => {
     foundUser.fanpage = req.body.fanpage
     foundUser.web = req.body.web
     foundUser.save((err, savedUser) => {
+      if (err) return res.send(err)
       res.status(200).send({message: 'Datos Actualizados!'})
     })
   })
 })
 
 router.get('/user/:id', (req, res) => {
-  user.findOne({_id: req.params.id}, (err, foundUser) => {
+  User.findOne({_id: req.params.id}, (err, foundUser) => {
     if (err) return res.status(500).send(err)
     res.status(200).send(foundUser)
   })
 })
 
 router.post('/obra', (req, res) => {
- var newObra = new obra()
- newObra.name = req.body.name
- newObra.description = req.body.description
- newObra.month = req.body.month
- newObra.year = req.body.year
- newObra.author = req.body.author
- newObra.category = req.body.category
- newObra.save((err, obraSaved) => {
-  if (err) return res.send(err)
-  // El valor del id reemplazarlo por el que viene en el req
-  user.findOne({_id: '58d811f36405471ac8f9ad86'}, (err, foundUser) => {
-    foundUser.obras = foundUser.obras.concat(obraSaved._id)
-    foundUser.save((err, updatedUser) => {
-      console.log(updatedUser)
-      res.send(obraSaved)
+  var newObra = new Obra()
+  newObra.name = req.body.name
+  newObra.description = req.body.description
+  newObra.month = req.body.month
+  newObra.year = req.body.year
+  newObra.author = req.body.author
+  newObra.category = req.body.category
+  newObra.save((err, obraSaved) => {
+    if (err) return res.send(err)
+    // El valor del id reemplazarlo por el que viene en el req
+    User.findOne({_id: '58d811f36405471ac8f9ad86'}, (error, foundUser) => {
+      if (error) return res.send(error)
+      foundUser.obras = foundUser.obras.concat(obraSaved._id)
+      foundUser.save((err, updatedUser) => {
+        if (err) return res.send(err)
+        res.send(obraSaved)
+      })
     })
   })
- })
 })
 
 router.post('/auth', (req, res) => {
-  console.log(req.body)
-  user.findOne({$or:[{'username': req.body.user}, {'email': req.body.user}], 'password': req.body.password}, (err, foundUser) => {
-    if(err) return res.status(500).send(err)
-    if(!foundUser) return res.status(500).send({message: 'Usuario o contraseña Invalido'})
+  User.findOne({$or: [{'username': req.body.user}, {'email': req.body.user}], 'password': req.body.password}, (err, foundUser) => {
+    if (err) return res.status(500).send(err)
+    if (!foundUser) return res.status(500).send({message: 'Usuario o contraseña Invalido'})
     res.status(200).send(foundUser)
   })
 })

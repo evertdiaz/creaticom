@@ -1,4 +1,3 @@
-var user = require('./user')
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
