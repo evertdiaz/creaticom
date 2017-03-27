@@ -7,7 +7,8 @@
 - Busqueda de obras en nombre y descripcion
 - Busqueda de artista
 - Enlace de perfil de artista
-- Middleware de artista o usuario
+* Middleware de artista o usuario
+- Añadir middlewares isAuth e isArtist a rutas
 - Crear perfil de usuario
 * Mejorar Middleware de sesion para no consultar a la BD
 - Login y Registro con facebook

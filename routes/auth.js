@@ -9,7 +9,7 @@ router.get('/', noAuth, function (req, res, next) {
 })
 
 router.post('/signup', (req, res) => {
-  if (req.body.isArtist === 1) req.body.isArtist = true
+  if (req.body.isArtist === '1') req.body.isArtist = true
   else req.body.isArtist = false
   request.post(apiURL + '/user', {json: req.body}, (error, response, body) => {
     if (error) return res.status(500).send(error)

@@ -3,6 +3,7 @@ var apiURL = require('../config/api').url
 var request = require('request')
 var router = express()
 var isAuth = require('../middlewares/isAuth')
+var isArtist = require('../middlewares/isArtist')
 
 router.get('/', isAuth, (req, res, next) => {
   // Aca variará por el middleware de una a otra vista
@@ -11,7 +12,7 @@ router.get('/', isAuth, (req, res, next) => {
 })
 
 // Temporal hasta arreglar todos los enlaces en front
-router.get('/obras', (req, res) => {
+router.get('/obras', isArtist, (req, res, next) => {
   res.redirect('/perfil/obra/all')
 })
 
