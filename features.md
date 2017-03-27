@@ -25,6 +25,8 @@
 - Arreglar que el isArtist sea un booleano que se guarde en la sesion, es decir se guarde el id y isArtist para evitarnos estar llamando a cada rato al API para verificar si es artista, mejorando el middleware isArtist
 - Login y Registro con facebook
 - Tener todas las imagenes en un Block Storage
+- Añadir Busqueda con texto parcial
+- En vista de editar obra, poner un select para modificar la categoria
 - Deploy!
 ****EXTRAS TECH
 * Fusionar con la rama del frontend
