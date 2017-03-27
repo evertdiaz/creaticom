@@ -2,7 +2,7 @@
 * Registro de Usuario, pedir si es artista o no
 * Login y sesion
 * Middleware que guarde id de usuario en req
-- Edicion de info perfil
+* Edicion de info perfil
 - Añadir Obra
 - Busqueda de obras en nombre y descripcion
 - Busqueda de artista

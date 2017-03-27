@@ -22,17 +22,37 @@ router.post('/user', (req, res) => {
   user.findOne({$or:[ {'username': req.body.username}, {'email': req.body.email}]}, (err,foundUser) => {
     if(foundUser) return res.status(402).send({ message: 'Usuario ya existe' })
     newUser = new user()
-    newUser.username = req.body.username
-    newUser.name = req.body.name
-    newUser.bio = req.body.bio
-    newUser.email = req.body.email
-    newUser.password = req.body.password
-    newUser.phone = req.body.phone
-    newUser.isArtist = req.body.isArtist
+    newUser.username = req.body.username || ''
+    newUser.name = req.body.name || ''
+    newUser.bio = req.body.bio || ''
+    newUser.email = req.body.email || ''
+    newUser.password = req.body.password || ''
+    newUser.phone = req.body.phone || null
+    newUser.isArtist = req.body.isArtist || false
+    newUser.fanpage = req.body.fanpage || ''
+    newUser.portafolio = req.body.portafolio || ''
+    newUser.web = req.body.web || ''
     newUser.obras = req.body.obras || []
     newUser.save((err, savedUser) => {
       if (err) return res.status(404).send(err)
       res.status(200).send(savedUser)
+    })
+  })
+})
+
+router.post('/user/update', (req, res) => {
+  user.findOne({_id: req.body.id}, (err, foundUser) => {
+    if (err) return res.send(err)
+    foundUser.username = req.body.username
+    foundUser.name = req.body.name
+    foundUser.email = req.body.email
+    foundUser.bio = req.body.bio
+    foundUser.phone = req.body.phone
+    foundUser.portafolio = req.body.portafolio
+    foundUser.fanpage = req.body.fanpage
+    foundUser.web = req.body.web
+    foundUser.save((err, savedUser) => {
+      res.status(200).send({message: 'Datos Actualizados!'})
     })
   })
 })
