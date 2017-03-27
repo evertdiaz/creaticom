@@ -6,5 +6,9 @@ block content
   a(href="/obra/all") Obras
   a(href="/auth") Login/Registro
   br
-  h3 Acá van todos los artistas
-  a(href="/artista/evert") Enlace al artista "evert"
+  each thing in data
+    h1= thing.name
+    h3= thing.bio
+    h3= thing.email
+    a(href="/artista/#{thing.username}") Ver Perfil
+    br

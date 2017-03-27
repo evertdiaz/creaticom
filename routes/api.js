@@ -158,4 +158,30 @@ router.get('/search/obra', (req, res) => {
   })
 })
 
+router.get('/artistas', (req, res) => {
+  User
+  .find()
+  .populate({
+    path: 'obras',
+    populate: {path:'category'}
+  })
+  .exec((err, foundUsers) => {
+    if (err) return res.send(err)
+    res.send(foundUsers)
+  })
+})
+
+router.get('/artista/:username', (req, res) => {
+  User
+  .findOne({username: req.params.username})
+  .populate({
+    path: 'obras',
+    populate: { path: 'category'}
+  })
+  .exec((err, foundUser) => {
+    if (err) return res.send(err)
+    res.send(foundUser)
+  })
+})
+
 module.exports = router

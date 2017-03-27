@@ -6,7 +6,7 @@
 * Añadir Obra
 * Busqueda de obras en nombre y descripcion
 * Busqueda de artista
-- Perfil de Artista
+* Perfil de Artista
 - Perfil de Obra
 - Agregar Indexacion desde mongoose (Por ahora se hace directo en la BD bd.collection.createIndex({campo:"texto"}))
 - Arreglar error se cruza bio con email (revisar api/users hay users con el email en bio, probablemente error de signup)
@@ -16,6 +16,7 @@
 * Mejorar Middleware de sesion para no consultar a la BD
 - Crear el sistema de imagenes para las obras, subida y muestra
 - Crear el sistema de subida de imagen de perfil de artista
+- Añadir validacion para que el username sea único
 - Añadir sistema de puntuacion
 - Añadir Comentarios
 - Login y Registro con facebook
