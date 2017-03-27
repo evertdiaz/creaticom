@@ -161,6 +161,7 @@ router.get('/category', (req, res) => {
 router.get('/search/artist', (req, res) => {
   User.find({$text: {$search: req.body.query}, isArtist: true}, (err, foundUsers) => {
     if (err) return res.send(err)
+    if (foundUsers.length == 0) return res.send({alert: 'No se encontraron obras'})
     res.send(foundUsers)
   })
 })
@@ -168,6 +169,7 @@ router.get('/search/artist', (req, res) => {
 router.get('/search/obra', (req, res) => {
   Obra.find({$text: {$search: req.body.query}}, (err, foundObras) => {
     if (err) return res.send(err)
+    if (foundObras.length == 0) return res.send({alert: 'No se encontraron artistas'})
     res.send(foundObras)
   })
 })

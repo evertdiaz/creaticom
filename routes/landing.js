@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
 
 router.get('/search/artist', (req, res) => {
   request(apiURL + '/search/artist', {json: req.query}, (error, response, body) => {
+    if (error) return res.send(error)
     res.render('landing/search/artist', { title: 'Busqueda',  data: response.body })
   })
 })

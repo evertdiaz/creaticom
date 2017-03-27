@@ -14,7 +14,6 @@ router.get('/:username', (req, res) => {
     if (error) return res.send(error)
     if(response.body.isArtist) res.render('artista/single', { data: response.body, title: 'Artista ' + req.params.username })  
     else res.render('artista/single', { data: {alert: 'No existe Artista'}, title: 'Artista ' + req.params.username })  
-    
   })
 })
 

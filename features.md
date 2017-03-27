@@ -12,7 +12,7 @@
 * Añadir middlewares isAuth e isArtist a rutas
 * Crear todo lo del usuario normal (noArtist)
 * Mejorar Middleware de sesion para no consultar a la BD
-- Añadir validacion para que el username sea único
+* Añadir validacion para que el username sea único
 * No dejar que se vea perfil de usuario No Artista
 * En las busquedas de usuarios exceptuar los que no sean Artistas
 * Exceptuar los noArtist en artistas/all

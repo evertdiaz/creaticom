@@ -7,8 +7,11 @@ block content
   a(href="/auth") Login/Registro
   br
   br
-  each thing in data
-    h1= thing.name
-    h3= thing.bio
-    h3= thing.email
-    a(href="/artista/#{thing.username}") Ver Perfil
+  if !data.alert
+    each thing in data
+      h1= thing.name
+      h3= thing.bio
+      h3= thing.email
+      a(href="/artista/#{thing.username}") Ver Perfil
+  else
+    h1= data.alert
