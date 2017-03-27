@@ -83,7 +83,7 @@ router.post('/obra', (req, res) => {
   newObra.save((err, obraSaved) => {
     if (err) return res.send(err)
     // El valor del id reemplazarlo por el que viene en el req
-    User.findOne({_id: req.body.user_id}, (error, foundUser) => {
+    User.findOne({_id: req.body.author}, (error, foundUser) => {
       console.log('USUARIO: ' + foundUser.username)
       if (error) return res.send(error)
       foundUser.obras = foundUser.obras.concat(obraSaved._id)
@@ -103,6 +103,17 @@ router.post('/auth', (req, res) => {
   })
 })
 
+
+router.get('/obras', (req, res) => {
+  Obra
+  .find()
+  .populate('category author')
+  .exec((err, foundObras) => {
+    if (err) return res.send(err)
+      res.send(foundObras)
+  })
+})
+
 router.get('/obras/:idAutor', (req, res) => {
   User
   .findOne({_id: req.params.idAutor})
@@ -117,9 +128,12 @@ router.get('/obras/:idAutor', (req, res) => {
 })
 
 router.get('/obra/:id', (req, res) => {
-  Obra.findOne({_id: req.params.id}, (err, foundObra) => {
+  Obra
+  .findOne({_id: req.params.id})
+  .populate('author category')
+  .exec((err, foundObra) => {
     if (err) return res.send(err)
-    res.status(200).send(foundObra)
+    res.send(foundObra)
   })
 })
 

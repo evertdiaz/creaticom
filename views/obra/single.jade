@@ -6,5 +6,8 @@ block content
   a(href="/obra/all") Obras
   a(href="/auth") Login/Registro
   br
-  h3 Obra: #{obra}
-  a(href="/artista/evert") Enlace al artista Evert
+  h1= data.name
+  h3= data.description
+  h3= data.month
+  h3= data.year
+  a(href="/artista/#{data.author.username}") Autor: #{data.author.username}

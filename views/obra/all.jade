@@ -6,5 +6,7 @@ block content
   a(href="/obra/all") Obras
   a(href="/auth") Login/Registro
   br
-  h3 Acá van todas las obras
-  a(href="/obra/666") Enlace a la obra 666
+  each thing in data
+    h1= thing.name
+    h3= thing.description
+    a(href="/obra/#{thing._id}") Ver Mas

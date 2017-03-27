@@ -63,7 +63,7 @@ router.get('/new/obra', (req, res) => {
 })
 
 router.post('/new/obra', (req, res) => {
-  req.body.user_id = req.session.user_id
+  req.body.author = req.session.user_id
   request.post(apiURL + '/obra', {json: req.body}, (error, response, body) => {
     if (error) return res.send(error)
     res.send(response.body)
