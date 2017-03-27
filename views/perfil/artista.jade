@@ -3,7 +3,8 @@ extends ../layout
 block content
   a(href="/") INICIO
   h3 Bienvenido #{user.email}
-  a(href="/perfil/obras") Ver MIS OBRAS
+  if user.isArtist == true
+    a(href="/perfil/obras") Ver MIS OBRAS
   br
   br
   form(action='/auth/logout', method='POST')
@@ -22,10 +23,11 @@ block content
     input(type="password" value="#{user.password}" name="password")
     label(for="phone") phone
     input(type="number" value="#{user.phone}" name="phone")
-    label(for="fanpage") fanpage
-    input(type="text" value="#{user.fanpage}" name="fanpage")
-    label(for="portafolio") portafolio
-    input(type="text" value="#{user.portafolio}" name="portafolio")
-    label(for="web") web
-    input(type="text" value="#{user.web}" name="web")
+    if user.isArtist == true
+      label(for="fanpage") fanpage
+      input(type="text" value="#{user.fanpage}" name="fanpage")
+      label(for="portafolio") portafolio
+      input(type="text" value="#{user.portafolio}" name="portafolio")
+      label(for="web") web
+      input(type="text" value="#{user.web}" name="web")
     input(type="submit" value="Guardar")
