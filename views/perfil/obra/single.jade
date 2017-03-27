@@ -1,0 +1,8 @@
+extends ../../layout
+
+block content
+  a(href="/") INICIO
+  h1= data.name
+  h2= data.description
+  a(href="/perfil/obra/#{data._id}/edit") EDITAR
+  a(href="/perfil") Ver MI PERFIL

@@ -4,7 +4,7 @@ var Category = require('../models/category')
 var User = require('../models/user')
 var Obra = require('../models/obra')
 
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
   res.send('Welcome')
 })
 
@@ -77,12 +77,13 @@ router.post('/obra', (req, res) => {
   newObra.save((err, obraSaved) => {
     if (err) return res.send(err)
     // El valor del id reemplazarlo por el que viene en el req
-    User.findOne({_id: '58d811f36405471ac8f9ad86'}, (error, foundUser) => {
+    User.findOne({_id: req.body.user_id}, (error, foundUser) => {
+      console.log('USUARIO: ' + foundUser.username)
       if (error) return res.send(error)
       foundUser.obras = foundUser.obras.concat(obraSaved._id)
       foundUser.save((err, updatedUser) => {
         if (err) return res.send(err)
-        res.send(obraSaved)
+        res.send({message: 'OK'})
       })
     })
   })
@@ -93,6 +94,47 @@ router.post('/auth', (req, res) => {
     if (err) return res.status(500).send(err)
     if (!foundUser) return res.status(500).send({message: 'Usuario o contraseña Invalido'})
     res.status(200).send(foundUser)
+  })
+})
+
+router.get('/obras/:idAutor', (req, res) => {
+  User
+  .findOne({_id: req.params.idAutor})
+  .populate({
+    path: 'obras',
+    populate: { path: 'category' }
+  })
+  .exec((err, userFinal) => {
+    if (err) return res.send(err)
+    res.send(userFinal.obras)
+  })
+})
+
+router.get('/obra/:id', (req, res) => {
+  Obra.findOne({_id: req.params.id}, (err, foundObra) => {
+    if (err) return res.send(err)
+    res.status(200).send(foundObra)
+  })
+})
+
+router.post('/obra/update/:id', (req, res) => {
+  Obra.findOne({_id: req.params.id}, (err, foundObra) => {
+    foundObra.name = req.body.name
+    foundObra.description = req.body.description
+    foundObra.month = req.body.month
+    foundObra.year = req.body.year
+    foundObra.category = req.body.category
+    foundObra.save((err, savedObra) => {
+      if (err) return res.send(err)
+      res.status(200).send({message: 'OK'})
+    })
+  })
+})
+
+router.get('/category', (req, res) => {
+  Category.find((err, foundCategories) => {
+    if (err) return res.send(err)
+    res.status(200).send(foundCategories)
   })
 })
 

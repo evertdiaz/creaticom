@@ -1,0 +1,12 @@
+extends ../../layout
+
+block content
+  a(href="/") INICIO
+  h3 Todas mis Obras
+  each thing in obras
+    h4= thing.name
+    h4= thing.description
+    a(href="/perfil/obra/#{thing._id}") Ver Obra
+    br
+  a(href="/perfil/new/obra") Crear Obra
+  a(href="/perfil") Ver MI PERFIL

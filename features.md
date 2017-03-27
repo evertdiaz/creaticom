@@ -3,14 +3,14 @@
 * Login y sesion
 * Middleware que guarde id de usuario en req
 * Edicion de info perfil
-- Añadir Obra
+* Añadir Obra
 - Busqueda de obras en nombre y descripcion
 - Busqueda de artista
 - Enlace de perfil de artista
-- Mejorar Middleware de sesion para no consultar a la BD
-- Usar el id del req en el API
+- Middleware de artista o usuario
+- Crear perfil de usuario
+* Mejorar Middleware de sesion para no consultar a la BD
 - Login y Registro con facebook
-- Middleware para ver perfil solo si es artista
 - Añadir Comentarios
 
 ****EXTRAS TECH

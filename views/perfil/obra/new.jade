@@ -1,0 +1,21 @@
+extends ../../layout
+
+block content
+  a(href="/") INICIO
+  h1 Nueva Obra
+  form(action="/perfil/new/obra", method="POST")
+    label(for="name")
+    input(type="text" name="name" placeholder="Nombre")
+    label(for="description")
+    input(type="text" name="description" placeholder="Descripcion")
+    label(for="month")
+    input(type="text" name="month" placeholder="Mes")
+    label(for="year")
+    input(type="number" name="year" placeholder="Año")
+    select(name='category')
+      option(value='', disabled='', selected='') Categoria
+      each thing in categories
+        option(value='#{thing._id}') #{thing.name}
+    input(type="submit" value="Guardar")
+    //- Hacer un select mostrando todas las categorias
+  a(href="/perfil") Ver MI PERFIL

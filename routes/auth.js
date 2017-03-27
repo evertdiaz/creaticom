@@ -21,7 +21,6 @@ router.post('/signup', (req, res) => {
 })
 
 router.post('/signin', (req, res) => {
-  console.log(apiURL + '/auth')
   request.post(apiURL + '/auth', {json: req.body}, (error, response, body) => {
     if (error) return res.send(error)
     // Aca deberia meterse una vista y enviar como data el response.body (Estilo openfuture)

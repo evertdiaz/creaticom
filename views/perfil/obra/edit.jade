@@ -1,0 +1,23 @@
+extends ../../layout
+
+block content
+  a(href="/") INICIO
+  h1 Editar
+  h3= data.name
+  form(action="/perfil/obra/#{data._id}", method="POST")
+    label(for="name")
+    input(type="text" name="name" value="#{data.name}")
+    label(for="description")
+    input(type="text" name="description" value="#{data.description}")
+    label(for="month")
+    input(type="text" name="month" value="#{data.month}")
+    label(for="year")
+    input(type="number" name="year" value="#{data.year}")
+    label(for="category")
+    //- Aca deberia mostrar las categorias en un select.
+    //- Recorremos todas las categorias 
+    //- si hay un match con data.category entonces ponemos select ahi y 
+    //- Dejamos que el valor del nombre se vea
+    input(type="text" name="category" value="58d80f10f2807018916a674a")
+    input(type="submit" value="Guardar")
+  a(href="/perfil") Ver MI PERFIL
