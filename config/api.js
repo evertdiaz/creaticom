@@ -1,3 +1,3 @@
 module.exports = {
-  'url': 'http://creaticom-api.azurewebsites.net'
+  'url': 'http://articom-api.azurewebsites.net'
 }
