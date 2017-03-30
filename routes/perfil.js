@@ -1,6 +1,8 @@
 var express = require('express')
 var apiURL = require('../config/api').url
+var azureConfig = require('../config/azure')
 var request = require('request')
+var azureStorage = require('azure-storage')
 var router = express()
 var isAuth = require('../middlewares/isAuth')
 var isArtist = require('../middlewares/isArtist')
@@ -66,6 +68,10 @@ router.post('/new/obra', isAuth, isArtist, (req, res) => {
     if (error) return res.send(error)
     res.send(response.body)
   })
+})
+
+router.post('/upload', isAuth, isArtist, (req, res) => {
+  res.send('hola')
 })
 
 module.exports = router

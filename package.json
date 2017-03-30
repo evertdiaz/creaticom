@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/evertdz/creaticom#readme",
   "dependencies": {
+    "azure-storage": "^2.1.0",
     "babel": "^6.23.0",
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
@@ -54,6 +55,8 @@
     "standard": "^9.0.2"
   },
   "standard": {
-    "ignore": ["public/*"]
+    "ignore": [
+      "public/*"
+    ]
   }
 }

@@ -3,6 +3,9 @@ extends ../../layout
 block content
   a(href="/") INICIO
   h1 Nueva Obra
+  form(action="/perfil/upload", method="POST")
+    input(type="file") Sube tu archivo
+
   form(action="/perfil/new/obra", method="POST")
     label(for="name")
     input(type="text" name="name" placeholder="Nombre")
