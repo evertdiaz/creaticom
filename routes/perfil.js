@@ -6,6 +6,7 @@ var azureStorage = require('azure-storage')
 var router = express()
 var isAuth = require('../middlewares/isAuth')
 var isArtist = require('../middlewares/isArtist')
+var fileService = azureStorage.createFileService(azureConfig.account, azureConfig.access)
 
 router.get('/', isAuth, (req, res, next) => {
   // Aca variará por el middleware de una a otra vista
@@ -71,7 +72,22 @@ router.post('/new/obra', isAuth, isArtist, (req, res) => {
 })
 
 router.post('/upload', isAuth, isArtist, (req, res) => {
-  res.send('hola')
+  fileService.createShareIfNotExists('taskshare', function(error, result, response) {
+  if (!error) {
+    fileService.createDirectoryIfNotExists('taskshare', 'taskdirectory', function(error, result, response) {
+  if (!error) {
+     fileService.createFileFromLocalFile('taskshare', 'taskdirectory', 'taskfile', req.body.archivo, function(error, result, response) {
+    if (!error) {
+      console.log(result)
+      res.send(response)
+    }
+  });
+  }
+});
+  }
+});
+ 
+  
 })
 
 module.exports = router

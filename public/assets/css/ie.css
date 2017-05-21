@@ -1,0 +1,30 @@
+.hover-info{display:none; background-color:#ffffff; background-color: rgba(255,255,255, 0.8)}
+.isotope-info:hover > .hover-info{display:block;}
+.circle i:after{display: none}
+div:hover > .circle i:after{display: block}
+.hang{display: none;}
+div:hover > .hang{display: block;}
+input{line-height: 18px;}
+.column .infobox > div{
+    min-height: 633px;
+}
+.owl-item .column .infobox > div{
+    min-height: 560px;
+}
+.owl-item .table-img {
+    min-height: 560px;
+}
+.table-img {
+    min-height: 633px;
+    position: relative;
+    display: block;
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-position-y: 0px;
+}
+.infobox-text-8 hr, .infobox-text-5 hr, .infobox-3 hr{
+    text-align: left;
+}
+#search-container, #menu-main, .main-menu-logo{
+    margin-top: -20px;
+}

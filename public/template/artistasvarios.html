@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+    <head>	
+        <title>Hilld - shared on themelock.com</title>
+        <!-- ======== META TAGS ======== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="description" content="My page desc.">
+        <meta name="keywords" content="my, tags">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- ======== / META TAGS ======== -->
+        <!-- ======== STYLESHEETS ======== -->
+        <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/et-line-font.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/owl.transitions.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/lightbox.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/smoothproducts.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/animate.css" type="text/css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/rs-plugin/css/settings.css" media="screen" />
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <!-- Se pierde el estilo de los botones-->
+        <!-- Latest compiled and minified CSS -->
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        -->
+        <!-- Optional theme -->
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        -->
+        <!-- Latest compiled and minified JavaScript -->
+        <!--
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        -->
+        <noscript>
+			<link rel="stylesheet" href="assets/css/nojs.css" type="text/css">
+        </noscript>
+        <!--[if lt IE 9]>
+                <link rel="stylesheet" type="text/css" href="assets/css/ie.css">
+        <![endif]-->
+        <!--[if lt IE 8]>
+                <link rel="stylesheet" type="text/css" href="assets/rs-plugin/css/settings-ie8.css">
+                <link rel="stylesheet" type="text/css" href="assets/css/ie.css">
+        <![endif]-->
+        <!-- ======== / STYLESHEETS ======== -->
+        <!-- ======== STANDARD SCRIPTS ======== -->
+        <script src="assets/js/jquery.js"></script>
+        <!--[if lt IE 9]>
+                <script src="assets/js/html5shiv.js"></script>
+                <script src="assets/js/respond.js"></script>
+        <![endif]-->
+        <!-- ======== / STANDARD SCRIPTS ======== -->
+        <style type="text/css"> 
+            .nav-tabs > li {
+                float:none;
+                display:inline-block;
+                zoom:1;
+            }
+            .nav-tabs {
+                text-align:center;
+            }
+            .clients-carousel .owl-controls, .portfolio-carousel .owl-controls{
+                display: block;
+            }
+            .owl-carousel{
+                z-index: 2;
+            }
+            .clients-carousel img{
+                    max-width: 100% !important;
+                    max-height: 100% !important;
+            }
+
+
+            .space-row{
+                    height: 40px;
+            }
+            .padding-artist{
+                    margin-top: 25px;
+            }
+
+
+            .card{
+                border: 2px #f1f0f0 solid;
+                display: inline-block;
+                margin-bottom: 40px;
+            }
+            .card img{
+                width:15%;
+                border-radius: 10%;
+                margin: 5% 0px 5% 5%;
+            }
+            .card div{
+                padding: 5px;
+                width: 80%;
+                float: right;
+                display: inline-block;
+            }
+            .card h6, .company span{
+                display: inline-block;
+                float: left;
+            }
+            .card h6{
+                margin-top: 0px;
+                margin-right: 5px;
+            }
+            .card span{
+                font-size: 13px;
+                font-weight: 700;
+                color: @light-grey;
+            }
+            .card p{
+                margin-top: 10px;
+                font-family: 'Raleway', sans-serif;
+                font-size: 13px;
+                color: @light-grey;
+                letter-spacing: 1px;
+            }
+        </style>
+<!--
+        $( "#foo" ).addClass( className );
+} else {
+  $( "#foo" ).removeClass( className );
+-->
+        <script type="text/javascript">
+            $( window ).load(function() {
+                $("#suscripciones").hide();
+                $('#suscripciones-tab').click(function (e) {
+                      e.preventDefault();
+                      $('li').removeClass();
+                      $(this).parent().addClass('active');
+                      $("#tendencias").hide();
+                      $("#suscripciones").show();
+                });
+                $('#tendencias-tab').click(function (e) {
+                      e.preventDefault();
+                      $('li').removeClass();
+                      $(this).parent().addClass('active');
+                      $("#tendencias").show();
+                      $("#suscripciones").hide();
+                });
+            });
+            
+        </script>
+    </head>
+    <body >
+        <div id="wrapper-1">
+            <!-- ========= HEADER ========= -->
+            <header>
+                <section class="sticky-wrapper">
+                    <div id="main-menu" class="main-menu">
+                        <div class="container">
+                            <div class="row">
+                                <nav class="col-md-12">
+                                    <div id="search-container">
+                                        <div class="menu-center">
+                                            <input name="s" placeholder="START TYPING..." type="text" autofocus/>
+                                            <div class="xbutton main-menu-search">
+                                                X
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="menu-main">
+                                        <div class="navbar-left">
+                                            <div class="menu-center">
+                                                <ul>
+                                                    <li><a class="nopad" href="index.html"><img class="" src="../assets/img/logo.png" alt=""/></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="navbar-right hidden-lg">
+                                            <div class="menu-center">
+                                                <ul class="nav-pills nav menu-lowerpad"> 
+                                                    <li><a class="general mobile-menu-toggle"><div class="clearfix bars-icon "><hr/><hr/><hr/></div></a></li>
+                                                    <li><a class="toggle-1-button"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <li><a class="general main-menu-search"><i class="fa fa-search"></i></a></li>
+                                                    <li><a class="general toggle-1-button"><div class="clearfix bars-icon "><hr/><hr/><hr/></div></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="navbar-left visible-lg">
+                                            <div class="menu-center">
+                                                <ul class="nav-pills navbar-right nav">
+                                                    <li>
+                                                        <a class="general" href="index.html">ARTISTAS</a>
+                                                        <ul class="sub-menu">
+                                                            <li>
+                                                                <a href="pages/about_us.html">Artes Visuales<i class="fa fa-angle-right"></i></a>
+                                                                <ul class="toggle-menu">
+                                                                    <li><a href="porfolio/portfolio_with_margin/2columns_style1.html">Arquitectura</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/3columns_style1.html">Escultura</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style1.html">Arte corporal</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/2columns_style2.html">Fotografia</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/3columns_style2.html">Cinematografia</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style2.html">Ilustracion</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style2.html">Diseño</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style2.html">Pintura</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style2.html">Varios</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="pages/our_services.html">Artes Escénicas<i class="fa fa-angle-right"></i></a>
+                                                                <ul class="toggle-menu">
+                                                                    <li><a href="porfolio/portfolio_no_margin/2columns.html">Danza</a></li>
+                                                                    <li><a href="porfolio/portfolio_no_margin/3columns.html">Teatro</a></li>
+                                                                    <li><a href="porfolio/portfolio_no_margin/4columns.html">Varios</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="pages/our_team.html">Artes Musicales<i class="fa fa-angle-right"></i></a>
+                                                                <ul class="toggle-menu">
+                                                                    <li><a href="porfolio/full_width_with_margin/2columns_style1.html">Canto</a></li>
+                                                                    <li><a href="porfolio/full_width_with_margin/3columns_style1.html">Banda</a></li>
+                                                                    <li><a href="porfolio/full_width_with_margin/4columns_style1.html">Ópera</a></li>
+                                                                    <li><a href="porfolio/full_width_with_margin/2columns_style2.html">Varios</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="pages/contact_us.html">Artes Literarias<i class="fa fa-angle-right"></i></a>
+                                                                <ul class="toggle-menu">
+                                                                    <li><a href="porfolio/full_width_no_margin/2columns.html">Narrativa</a></li>
+                                                                    <li><a href="porfolio/full_width_no_margin/3columns.html">Poesía</a></li>
+                                                                    <li><a href="porfolio/full_width_no_margin/4columns.html">Drama</a></li>
+                                                                    <li><a href="porfolio/full_width_no_margin/4columns.html">Varios</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a class="general" href="#">OBRAS</a>
+                                                        <ul class="sub-menu">
+                                                            <li>
+                                                                <a href="pages/about_us.html">Artes Visuales<i class="fa fa-angle-right"></i></a>
+                                                                <ul class="toggle-menu">
+                                                                    <li><a href="porfolio/portfolio_with_margin/2columns_style1.html">Arquitectura</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/3columns_style1.html">Escultura</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style1.html">Arte corporal</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/2columns_style2.html">Fotografia</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/3columns_style2.html">Cinematografia</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style2.html">Ilustracion</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style2.html">Diseño</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style2.html">Pintura</a></li>
+                                                                    <li><a href="porfolio/portfolio_with_margin/4columns_style2.html">Varios</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="pages/our_services.html">Artes Escénicas<i class="fa fa-angle-right"></i></a>
+                                                                <ul class="toggle-menu">
+                                                                    <li><a href="porfolio/portfolio_no_margin/2columns.html">Danza</a></li>
+                                                                    <li><a href="porfolio/portfolio_no_margin/3columns.html">Teatro</a></li>
+                                                                    <li><a href="porfolio/portfolio_no_margin/4columns.html">Varios</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="pages/our_team.html">Artes Musicales<i class="fa fa-angle-right"></i></a>
+                                                                <ul class="toggle-menu">
+                                                                    <li><a href="porfolio/full_width_with_margin/2columns_style1.html">Canto</a></li>
+                                                                    <li><a href="porfolio/full_width_with_margin/3columns_style1.html">Banda</a></li>
+                                                                    <li><a href="porfolio/full_width_with_margin/4columns_style1.html">Ópera</a></li>
+                                                                    <li><a href="porfolio/full_width_with_margin/2columns_style2.html">Varios</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="pages/contact_us.html">Artes Literarias<i class="fa fa-angle-right"></i></a>
+                                                                <ul class="toggle-menu">
+                                                                    <li><a href="porfolio/full_width_no_margin/2columns.html">Narrativa</a></li>
+                                                                    <li><a href="porfolio/full_width_no_margin/3columns.html">Poesía</a></li>
+                                                                    <li><a href="porfolio/full_width_no_margin/4columns.html">Drama</a></li>
+                                                                    <li><a href="porfolio/full_width_no_margin/4columns.html">Varios</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="navbar-right visible-lg">
+                                            <div class="menu-center">
+                                                
+                                                <div class="input-group">
+                                                  <input type="text" class="form-control" placeholder="Search for...">
+                                                  <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">Go!</button>
+                                                  </span>
+                                                </div><!-- /input-group -->
+                                                <div class="menu-center">
+                                                    <ul class="nav-pills navbar-right nav">
+                                                    <li>
+                                                        <a class="general" href="index.html">REGISTRAR/LOGIN</a>
+                                                    </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="mobile-menu">
+                            <div class="container">
+                                <ul>
+                                    <li>
+                                        <a href="demo1.html">ARTISTAS</a>
+                                    <li>
+                                        <a href="#" class="">PORTFOLIO</a><a class=" drop-toggle" href="#"><i class="fa fa-angle-down"></i></a>
+                                        <ul class="drop-menu">
+                                            <li>
+                                                <a href="#" class="">PORTFOLIO WITH MARGIN</a><a class="drop-toggle" href="#"><i class="fa fa-angle-down"></i></a>
+                                                <ul class="drop-menu">
+                                                    <li><a href="../porfolio/portfolio_with_margin/2columns_style1.html">2 COLUMN STYLE 1</a></li>
+                                                    <li><a href="../porfolio/portfolio_with_margin/3columns_style1.html">3 COLUMN STYLE 1</a></li>
+                                                    <li><a href="../porfolio/portfolio_with_margin/4columns_style1.html">4 COLUMN STYLE 1</a></li>
+                                                    <li><a href="../porfolio/portfolio_with_margin/2columns_style2.html">2 COLUMN STYLE 2</a></li>
+                                                    <li><a href="../porfolio/portfolio_with_margin/3columns_style2.html">3 COLUMN STYLE 2</a></li>
+                                                    <li><a href="../porfolio/portfolio_with_margin/4columns_style2.html">4 COLUMN STYLE 2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="">PORTFOLIO NO MARGIN</a><a class="drop-toggle" href="#"><i class="fa fa-angle-down"></i></a>
+                                                <ul class="drop-menu">
+                                                    <li><a href="../porfolio/portfolio_no_margin/2columns.html">2 COLUMN</a></li>
+                                                    <li><a href="../porfolio/portfolio_no_margin/3columns.html">3 COLUMN</a></li>
+                                                    <li><a href="../porfolio/portfolio_no_margin/4columns.html">4 COLUMN</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="">FULL WIDTH WITH MARGIN</a><a class="drop-toggle" href="#"><i class="fa fa-angle-down"></i></a>
+                                                <ul class="drop-menu">
+                                                    <li><a href="../porfolio/full_width_with_margin/2columns_style1.html">2 COLUMN STYLE 1</a></li>
+                                                    <li><a href="../porfolio/full_width_with_margin/3columns_style1.html">3 COLUMN STYLE 1</a></li>
+                                                    <li><a href="../porfolio/full_width_with_margin/4columns_style1.html">4 COLUMN STYLE 1</a></li>
+                                                    <li><a href="../porfolio/full_width_with_margin/2columns_style2.html">2 COLUMN STYLE 2</a></li>
+                                                    <li><a href="../porfolio/full_width_with_margin/3columns_style2.html">3 COLUMN STYLE 2</a></li>
+                                                    <li><a href="../porfolio/full_width_with_margin/4columns_style2.html">4 COLUMN STYLE 2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="">FULL WIDTH NO MARGIN</a><a class="drop-toggle" href="#"><i class="fa fa-angle-down"></i></a>
+                                                <ul class="drop-menu">
+                                                    <li><a href="../porfolio/full_width_no_margin/2columns.html">2 COLUMN</a></li>
+                                                    <li><a href="../porfolio/full_width_no_margin/3columns.html">3 COLUMN</a></li>
+                                                    <li><a href="../porfolio/full_width_no_margin/4columns.html">4 COLUMN</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="../porfolio/masonry.html">PORFOLIO MASONRY</a></li>
+                                            <li>
+                                                <a href="#" class="">PORTFOLIO WITH SIDEBAR</a><a class="drop-toggle" href="#"><i class="fa fa-angle-down"></i></a>
+                                                <ul class="drop-menu">
+                                                    <li><a href="../porfolio/portfolio_with_sidebar/2columns.html">2 COLUMN</a></li>
+                                                    <li><a href="../porfolio/portfolio_with_sidebar/3columns.html">3 COLUMN</a></li>
+                                                    <li><a href="../porfolio/portfolio_with_sidebar/4columns.html">4 COLUMN</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="../porfolio/single.html">PORTFOLIO SINGLE</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </header>
+            <!-- ========= END ========= -->
+
+            <section class="section no-margin" >
+            <div class="container" style="margin-top: 30px; margin-bottom: 100px;">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist"  >
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content no-margin" >
+                <div role="tabpanel" class="tab-pane active ">
+                    
+                    <div class=" no-margin">
+                        <h3>ARTES VISUALES</h3>
+                        <h5>VARIOS</h5>
+                        <nav class="pagination no-margin">
+                            <div class="sorting no-margin">
+                                <a class="drop-toggle-2" href="#">Default sorting
+                                <i class="fa fa-angle-down"></i></a>
+                                <ul class="drop-menu-2">
+                                    <li><a href="#">Alfabeticamente</a></li>
+                                    <li><a href="#">Visitas</a></li>
+                                    <li><a href="#">Recientes</a></li>
+                                    <li><a href="#">Apeciaciones</a></li>
+                                </ul>
+                            </div>
+                            <p>Showing 1-9 of 15 results</p>
+                        </nav>
+                        
+                    </div>
+                    <div class="container">
+                    <div class="row">
+                        <div class="lowerpad">
+                            <div class="col-lg-6 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <img src="http://placehold.it/180x180" alt=""/>
+                                    <div>
+                                        <h6>Jack Blake</h6><span>- Example company</span>
+                                        <br>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <br>
+                                        <h6><i class="fa fa-users" aria-hidden="true"></i> 904 Seguidores</h6>
+                                        <h6><i class="fa fa-trophy" aria-hidden="true"></i> 2.4K Apreciaciones</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <img src="http://placehold.it/180x180" alt=""/>
+                                    <div>
+                                        <h6>Jack Blake</h6><span>- Example company</span>
+                                        <br>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <br>
+                                        <h6><i class="fa fa-users" aria-hidden="true"></i> 904 Seguidores</h6>
+                                        <h6><i class="fa fa-trophy" aria-hidden="true"></i> 2.4K Apreciaciones</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <img src="http://placehold.it/180x180" alt=""/>
+                                    <div>
+                                        <h6>Jack Blake</h6><span>- Example company</span>
+                                        <br>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <br>
+                                        <h6><i class="fa fa-users" aria-hidden="true"></i> 904 Seguidores</h6>
+                                        <h6><i class="fa fa-trophy" aria-hidden="true"></i> 2.4K Apreciaciones</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <img src="http://placehold.it/180x180" alt=""/>
+                                    <div>
+                                        <h6>Jack Blake</h6><span>- Example company</span>
+                                        <br>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <a class="button-3 button-round button-xsmall  push-left" href="#"> CIRCLE</a>
+                                        <br>
+                                        <h6><i class="fa fa-users" aria-hidden="true"></i> 904 Seguidores</h6>
+                                        <h6><i class="fa fa-trophy" aria-hidden="true"></i> 2.4K Apreciaciones</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <nav class="pagination">
+                        <a class="prev" href="#"></a>
+                        <a class="next" href="#"></a>
+                    </nav>
+                </div>
+              </div>
+            </div>
+         
+            </section>
+                
+            <!-- ============  END ================== -->
+            <!-- =============== FOOTER ============ -->
+            <footer id="footer">
+                    <section class="footer footer-margin">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                    <div class="widget widget-about-us la-hover">
+                                        <h5 class="letter-animation" data-speed="1500">ABOUT US</h5>
+                                        <p>121 King Street, Melbourne </p>
+                                        <p>Victoria 3000 Australia</p> 
+                                        <p>E-Mail:  no-replay@envato.com</p>
+                                        <p>Phone: +61 3 8376 6284</p>
+                                        <ul class="nav-pills nav">
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                    <div class="widget la-hover">
+                                        <h5 class="letter-animation" data-speed="1500">RECENT POSTS</h5>
+                                        <ul>
+                                            <li>
+                                                <h6><a href="#">Class aptent taciti sociosqu ad</a></h6>
+                                                <p>11 April, 2015</p>
+                                            </li>
+                                            <li>
+                                                <h6><a href="#">Fusce turpis ex, porta non tempus</a></h6>
+                                                <p>04 April, 2015</p>
+                                            </li>
+                                            <li>
+                                                <h6><a href="#">Class aptent taciti sociosqu</a></h6>
+                                                <p>31 March, 2015</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                    <div class="widget la-hover">
+                                        <h5 class="letter-animation" data-speed="1500">OTHER LINKS</h5>
+                                        <ul>
+                                            <li><h6><a href="#">Aenean id quam lectus</a></h6></li>
+                                            <li><h6><a href="#">Morbi nisl mauris, consectetur at</a></h6></li>
+                                            <li><h6><a href="#">Fusce enim elit, faucibus facili</a></h6></li>
+                                            <li><h6><a href="#">In hac habitasse platea</a></h6></li>
+                                            <li><h6><a href="#">Praesent pulvinar, mi tristique </a></h6></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-xs-12">
+                                    <div class="widget la-hover">
+                                        <h5 class="letter-animation" data-speed="1500">PHOTO STREAM</h5>
+                                        <div class="flickr-container" data-count="8" data-userid="71865026@N00" data-apikey="817d59b480172b8e698db8da5335a2d1">
+                                        </div>                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="center">
+                                        <p class="footer">© 2017 Jose Evanan. All Rights Reserved.</p>
+                                    </div>
+                                    <a href="#" class="footer-toggle"><i class="fa fa-angle-down"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="footer-toggle">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </section>
+                </footer>
+            <a class="scroll-top" href="#"><i class="fa fa-angle-up"></i></a>
+            <!-- ========= END ========= -->
+        </div>
+        <!-- ========= SIDE MENU ======= -->
+        <section id="toggle-1" class="sidemenu">
+            <div class="verticalblock">
+                <div class="toggle-1-button xbutton">X</div>
+                <h5>2 Items in The Cart</h5>
+                <hr/>
+                <ul class="cart-items">
+                    <li>
+                        <a href="#" class="close-button">
+                            X
+                        </a>
+                        <a href="#">
+                            brown jeans
+                            <output>1 x $ 239,99</output>
+                        </a>
+                        <img src="http://placehold.it/50x63" alt=""/>
+                    </li>
+                    <li>
+                        <a href="#" class="close-button">
+                            X
+                        </a>
+                        <a href="#">
+                            short top
+                            <output>1 x $ 109,99</output>
+                        </a>
+                        <img src="http://placehold.it/50x63" alt=""/>
+                    </li>
+                </ul>
+                <output>SUBTOTAL: $349,98</output>
+                <hr/>
+                <div class="side-menu-button "><a href="shop/cart.html">VIEW CART</a></div>
+                <div class="side-menu-button "><a href="#">CHECKOUT</a></div>
+                <div class="links">
+                    <h5>Other Links</h5>
+                    <ul>
+                        <li><a href="#">Aenean id quam lectus</a></li>
+                        <li><a href="#">Morbi nisl mauris, consectetur at</a></li>
+                        <li><a href="#">Fusce enim elit, faucibus facili</a></li>
+                        <li><a href="#">In hac habitasse platea</a></li>
+                        <li><a href="#">Praesent pulvinar, mi tristique </a></li>
+                        <li><a href="#">Sodales blandit tellus </a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- ========= END ========= -->
+        <!-- ======== OTHER SCRIPTS ======== -->
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+        <script src="assets/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        <!-- ======== /OTHER SCRIPTS ======== -->
+    </body>
+</html>

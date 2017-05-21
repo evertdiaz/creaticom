@@ -4,7 +4,8 @@ block content
   a(href="/") INICIO
   h1 Nueva Obra
   form(action="/perfil/upload", method="POST")
-    input(type="file") Sube tu archivo
+    input(type="file" placeholder="sube tu archivo" name="archivo")
+    input(type="submit" value="SUBIR")
 
   form(action="/perfil/new/obra", method="POST")
     label(for="name")

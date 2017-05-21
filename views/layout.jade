@@ -1,7 +1,361 @@
 doctype html
 html
   head
-    title= title
-    link( rel="stylesheet" href="/css/estilos.css")
+    title Hilld - shared on themelock.com
+    // ======== META TAGS ========
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(charset='utf-8')
+    meta(name='description', content='My page desc.')
+    meta(name='keywords', content='my, tags')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // ======== / META TAGS ========
+    // ======== STYLESHEETS ========
+    link(rel='stylesheet', href='/assets/css/reset.css', type='text/css')
+    link(rel='stylesheet', href='/assets/css/bootstrap.min.css', type='text/css')
+    link(rel='stylesheet', href='/assets/css/font-awesome.min.css', type='text/css')
+    link(rel='stylesheet', href='/assets/css/style.css', type='text/css')
+    link(rel='stylesheet', href='/assets/css/et-line-font.css', type='text/css')
+    link(rel='stylesheet', href='/assets/css/owl.carousel.css', type='text/css')
+    link(rel='stylesheet', href='/assets/css/owl.transitions.css', type='text/css')
+    link(rel='stylesheet', href='/assets/css/lightbox.min.css', type='text/css')
+    link(rel='stylesheet', href='/assets/css/smoothproducts.css', type='text/css')
+    link(rel='stylesheet', href='/assets/css/animate.css', type='text/css')
+    link(rel='stylesheet', type='text/css', href='/assets/rs-plugin/css/settings.css', media='screen')
+    link(href='http://fonts.googleapis.com/css?family=Raleway:400,600', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+    // Se pierde el estilo de los botones
+    // Latest compiled and minified CSS
+    //
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    // Optional theme
+    //
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    // Latest compiled and minified JavaScript
+    //
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    noscript
+      link(rel='stylesheet', href='/assets/css/nojs.css', type='text/css')
+    //if lt IE 9
+      link(rel='stylesheet', type='text/css', href='/assets/css/ie.css')
+    //if lt IE 8
+      link(rel='stylesheet', type='text/css', href='/assets/rs-plugin/css/settings-ie8.css')
+      link(rel='stylesheet', type='text/css', href='/assets/css/ie.css')
+    // ======== / STYLESHEETS ========
+    // ======== STANDARD SCRIPTS ========
+    script(src='/assets/js/jquery.js')
+    //if lt IE 9
+      script(src='/assets/js/html5shiv.js')
+      script(src='/assets/js/respond.js')
+    // ======== / STANDARD SCRIPTS ========
+    style(type='text/css').
+      .nav-tabs > li {
+      float:none;
+      display:inline-block;
+      zoom:1;
+      }
+      .nav-tabs {
+      text-align:center;
+      }
+      .clients-carousel .owl-controls, .portfolio-carousel .owl-controls{
+      display: block;
+      }
+      .owl-carousel{
+      z-index: 2;
+      }
+      .clients-carousel img{
+      max-width: 100% !important;
+      max-height: 100% !important;
+      }
+      .space-row{
+      height: 40px;
+      }
+      .padding-artist{
+      margin-top: 25px;
+      }
+    //
+      $( "#foo" ).addClass( className );
+      } else {
+      $( "#foo" ).removeClass( className );
+    script(type='text/javascript').
+      $( window ).load(function() {
+      $("#suscripciones").hide();
+      $('#suscripciones-tab').click(function (e) {
+      e.preventDefault();
+      $('li').removeClass();
+      $(this).parent().addClass('active');
+      $("#tendencias").hide();
+      $("#suscripciones").show();
+      });
+      $('#tendencias-tab').click(function (e) {
+      e.preventDefault();
+      $('li').removeClass();
+      $(this).parent().addClass('active');
+      $("#tendencias").show();
+      $("#suscripciones").hide();
+      });
+      });
   body
-    block content
+    #wrapper-1
+      // ========= HEADER =========
+      header
+        section.sticky-wrapper
+          #main-menu.main-menu
+            .container
+              .row
+                nav.col-md-12
+                  #search-container
+                    .menu-center
+                      input(name='s', placeholder='START TYPING...', type='text', autofocus='')
+                      .xbutton.main-menu-search
+                        | X
+                  #menu-main
+                    .navbar-left
+                      .menu-center
+                        ul
+                          li
+                            a.nopad(href='/')
+                              img(src='/assets/img/logo.png', alt='')
+                    .navbar-right.hidden-lg
+                      .menu-center
+                        ul.nav-pills.nav.menu-lowerpad
+                          li
+                            a.general.mobile-menu-toggle
+                              .clearfix.bars-icon
+                                hr
+                                hr
+                                hr
+                          li
+                            a.toggle-1-button
+                              i.fa.fa-shopping-cart
+                          li
+                            a.general.main-menu-search
+                              i.fa.fa-search
+                          li
+                            a.general.toggle-1-button
+                              .clearfix.bars-icon
+                                hr
+                                hr
+                                hr
+                    .navbar-left.visible-lg
+                      .menu-center
+                        ul.nav-pills.navbar-right.nav
+                          li
+                            a.general(href='/artistas/all') ARTISTAS
+                            ul.sub-menu
+                              li
+                                a(href='pages/about_us.html')
+                                  | Artes Visuales
+                                  i.fa.fa-angle-right
+                                ul.toggle-menu
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/2columns_style1.html') Arquitectura
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/3columns_style1.html') Escultura
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style1.html') Arte corporal
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/2columns_style2.html') Fotografia
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/3columns_style2.html') Cinematografia
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style2.html') Ilustracion
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style2.html') Diseño
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style2.html') Pintura
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style2.html') Varios
+                              li
+                                a(href='pages/our_services.html')
+                                  | Artes Escénicas
+                                  i.fa.fa-angle-right
+                                ul.toggle-menu
+                                  li
+                                    a(href='porfolio/portfolio_no_margin/2columns.html') Danza
+                                  li
+                                    a(href='porfolio/portfolio_no_margin/3columns.html') Teatro
+                                  li
+                                    a(href='porfolio/portfolio_no_margin/4columns.html') Varios
+                              li
+                                a(href='pages/our_team.html')
+                                  | Artes Musicales
+                                  i.fa.fa-angle-right
+                                ul.toggle-menu
+                                  li
+                                    a(href='porfolio/full_width_with_margin/2columns_style1.html') Canto
+                                  li
+                                    a(href='porfolio/full_width_with_margin/3columns_style1.html') Banda
+                                  li
+                                    a(href='porfolio/full_width_with_margin/4columns_style1.html') Ópera
+                                  li
+                                    a(href='porfolio/full_width_with_margin/2columns_style2.html') Varios
+                              li
+                                a(href='pages/contact_us.html')
+                                  | Artes Literarias
+                                  i.fa.fa-angle-right
+                                ul.toggle-menu
+                                  li
+                                    a(href='porfolio/full_width_no_margin/2columns.html') Narrativa
+                                  li
+                                    a(href='porfolio/full_width_no_margin/3columns.html') Poesía
+                                  li
+                                    a(href='porfolio/full_width_no_margin/4columns.html') Drama
+                                  li
+                                    a(href='porfolio/full_width_no_margin/4columns.html') Varios
+                          li
+                            a.general(href='#') OBRAS
+                            ul.sub-menu
+                              li
+                                a(href='pages/about_us.html')
+                                  | Artes Visuales
+                                  i.fa.fa-angle-right
+                                ul.toggle-menu
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/2columns_style1.html') Arquitectura
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/3columns_style1.html') Escultura
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style1.html') Arte corporal
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/2columns_style2.html') Fotografia
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/3columns_style2.html') Cinematografia
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style2.html') Ilustracion
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style2.html') Diseño
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style2.html') Pintura
+                                  li
+                                    a(href='porfolio/portfolio_with_margin/4columns_style2.html') Varios
+                              li
+                                a(href='pages/our_services.html')
+                                  | Artes Escénicas
+                                  i.fa.fa-angle-right
+                                ul.toggle-menu
+                                  li
+                                    a(href='porfolio/portfolio_no_margin/2columns.html') Danza
+                                  li
+                                    a(href='porfolio/portfolio_no_margin/3columns.html') Teatro
+                                  li
+                                    a(href='porfolio/portfolio_no_margin/4columns.html') Varios
+                              li
+                                a(href='pages/our_team.html')
+                                  | Artes Musicales
+                                  i.fa.fa-angle-right
+                                ul.toggle-menu
+                                  li
+                                    a(href='porfolio/full_width_with_margin/2columns_style1.html') Canto
+                                  li
+                                    a(href='porfolio/full_width_with_margin/3columns_style1.html') Banda
+                                  li
+                                    a(href='porfolio/full_width_with_margin/4columns_style1.html') Ópera
+                                  li
+                                    a(href='porfolio/full_width_with_margin/2columns_style2.html') Varios
+                              li
+                                a(href='pages/contact_us.html')
+                                  | Artes Literarias
+                                  i.fa.fa-angle-right
+                                ul.toggle-menu
+                                  li
+                                    a(href='porfolio/full_width_no_margin/2columns.html') Narrativa
+                                  li
+                                    a(href='porfolio/full_width_no_margin/3columns.html') Poesía
+                                  li
+                                    a(href='porfolio/full_width_no_margin/4columns.html') Drama
+                                  li
+                                    a(href='porfolio/full_width_no_margin/4columns.html') Varios
+                    .navbar-right.visible-lg
+                      .menu-center
+                        .input-group
+                          input.form-control(type='text', placeholder='Search for...')
+                          span.input-group-btn
+                            button.btn.btn-default(type='button') Go!
+                        // /input-group
+                        .menu-center
+                          ul.nav-pills.navbar-right.nav
+                            li
+                              a.general(href='index.html') REGISTRAR/LOGIN
+            .mobile-menu
+              .container
+                ul
+                  li
+                    a(href='demo1.html') ARTISTAS
+                  li
+                    a(href='#') PORTFOLIO
+                    a.drop-toggle(href='#')
+                      i.fa.fa-angle-down
+                    ul.drop-menu
+                      li
+                        a(href='#') PORTFOLIO WITH MARGIN
+                        a.drop-toggle(href='#')
+                          i.fa.fa-angle-down
+                        ul.drop-menu
+                          li
+                            a(href='../porfolio/portfolio_with_margin/2columns_style1.html') 2 COLUMN STYLE 1
+                          li
+                            a(href='../porfolio/portfolio_with_margin/3columns_style1.html') 3 COLUMN STYLE 1
+                          li
+                            a(href='../porfolio/portfolio_with_margin/4columns_style1.html') 4 COLUMN STYLE 1
+                          li
+                            a(href='../porfolio/portfolio_with_margin/2columns_style2.html') 2 COLUMN STYLE 2
+                          li
+                            a(href='../porfolio/portfolio_with_margin/3columns_style2.html') 3 COLUMN STYLE 2
+                          li
+                            a(href='../porfolio/portfolio_with_margin/4columns_style2.html') 4 COLUMN STYLE 2
+                      li
+                        a(href='#') PORTFOLIO NO MARGIN
+                        a.drop-toggle(href='#')
+                          i.fa.fa-angle-down
+                        ul.drop-menu
+                          li
+                            a(href='../porfolio/portfolio_no_margin/2columns.html') 2 COLUMN
+                          li
+                            a(href='../porfolio/portfolio_no_margin/3columns.html') 3 COLUMN
+                          li
+                            a(href='../porfolio/portfolio_no_margin/4columns.html') 4 COLUMN
+                      li
+                        a(href='#') FULL WIDTH WITH MARGIN
+                        a.drop-toggle(href='#')
+                          i.fa.fa-angle-down
+                        ul.drop-menu
+                          li
+                            a(href='../porfolio/full_width_with_margin/2columns_style1.html') 2 COLUMN STYLE 1
+                          li
+                            a(href='../porfolio/full_width_with_margin/3columns_style1.html') 3 COLUMN STYLE 1
+                          li
+                            a(href='../porfolio/full_width_with_margin/4columns_style1.html') 4 COLUMN STYLE 1
+                          li
+                            a(href='../porfolio/full_width_with_margin/2columns_style2.html') 2 COLUMN STYLE 2
+                          li
+                            a(href='../porfolio/full_width_with_margin/3columns_style2.html') 3 COLUMN STYLE 2
+                          li
+                            a(href='../porfolio/full_width_with_margin/4columns_style2.html') 4 COLUMN STYLE 2
+                      li
+                        a(href='#') FULL WIDTH NO MARGIN
+                        a.drop-toggle(href='#')
+                          i.fa.fa-angle-down
+                        ul.drop-menu
+                          li
+                            a(href='../porfolio/full_width_no_margin/2columns.html') 2 COLUMN
+                          li
+                            a(href='../porfolio/full_width_no_margin/3columns.html') 3 COLUMN
+                          li
+                            a(href='../porfolio/full_width_no_margin/4columns.html') 4 COLUMN
+                      li
+                        a(href='../porfolio/masonry.html') PORFOLIO MASONRY
+                      li
+                        a(href='#') PORTFOLIO WITH SIDEBAR
+                        a.drop-toggle(href='#')
+                          i.fa.fa-angle-down
+                        ul.drop-menu
+                          li
+                            a(href='../porfolio/portfolio_with_sidebar/2columns.html') 2 COLUMN
+                          li
+                            a(href='../porfolio/portfolio_with_sidebar/3columns.html') 3 COLUMN
+                          li
+                            a(href='../porfolio/portfolio_with_sidebar/4columns.html') 4 COLUMN
+                      li
+                        a(href='../porfolio/single.html') PORTFOLIO SINGLE
+      // ========= END =========
+      block content
