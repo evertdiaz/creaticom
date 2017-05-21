@@ -5,6 +5,7 @@ var router = express()
 
 router.get('/all', (req, res) => {
   request(apiURL + '/artistas', {json: req.body}, (error, response, body) => {
+    console.log(response.body)
     res.render('artista/all', { title: 'Artistas', data: response.body })  
   })
 })
