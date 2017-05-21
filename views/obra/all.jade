@@ -1,12 +1,182 @@
 extends ../layout
 
 block content
-  a(href="/") INICIO
-  a(href="/artista/all") Artistas
-  a(href="/obra/all") Obras
-  a(href="/auth") Login/Registro
-  br
-  each thing in data
-    h1= thing.name
-    h3= thing.description
-    a(href="/obra/#{thing._id}") Ver Mas
+  section.section.no-margin
+    .container(style='margin-top: 30px; margin-bottom: 100px;')
+      // Nav tabs
+      ul.nav.nav-tabs(role='tablist')
+      // Tab panes
+      .tab-content.no-margin
+        .tab-pane.active(role='tabpanel')
+          .no-margin
+            h3 ARTES VISUALES
+            nav.pagination.no-margin
+              .sorting.no-margin
+                a.drop-toggle-2(href='#')
+                  | Default sorting
+                  i.fa.fa-angle-down
+                ul.drop-menu-2
+                  li
+                    a(href='#') Alfabeticamente
+                  li
+                    a(href='#') Visitas
+                  li
+                    a(href='#') Recientes
+                  li
+                    a(href='#') Apeciaciones
+              p Showing 1-9 of 15 results
+            .isotope.margin
+              each thing in data
+                a(href="/obra/#{thing._id}")
+                  .item.col-3.art.isotope-info
+                    img.img-responsive(src='http://placehold.it/600x400', alt='')
+                    .hover-info
+                      .infobox-3
+                        hr
+                        h4= thing.name
+                        | #{thing.category.name}
+          nav.pagination
+            a.prev(href='#')
+            a.next(href='#')
+  // ============  END ==================
+  // =============== FOOTER ============
+  footer#footer
+    section.footer.footer-margin
+      .container
+        .row
+          .col-lg-3.col-sm-3.col-xs-12
+            .widget.widget-about-us.la-hover
+              h5.letter-animation(data-speed='1500') ABOUT US
+              p 121 King Street, Melbourne 
+              p Victoria 3000 Australia
+              p E-Mail:  no-replay@envato.com
+              p Phone: +61 3 8376 6284
+              ul.nav-pills.nav
+                li
+                  a(href='#')
+                    i.fa.fa-facebook
+                li
+                  a(href='#')
+                    i.fa.fa-twitter
+                li
+                  a(href='#')
+                    i.fa.fa-tumblr
+                li
+                  a(href='#')
+                    i.fa.fa-linkedin
+          .col-lg-3.col-sm-3.col-xs-12
+            .widget.la-hover
+              h5.letter-animation(data-speed='1500') RECENT POSTS
+              ul
+                li
+                  h6
+                    a(href='#') Class aptent taciti sociosqu ad
+                  p 11 April, 2015
+                li
+                  h6
+                    a(href='#') Fusce turpis ex, porta non tempus
+                  p 04 April, 2015
+                li
+                  h6
+                    a(href='#') Class aptent taciti sociosqu
+                  p 31 March, 2015
+          .col-lg-3.col-sm-3.col-xs-12
+            .widget.la-hover
+              h5.letter-animation(data-speed='1500') OTHER LINKS
+              ul
+                li
+                  h6
+                    a(href='#') Aenean id quam lectus
+                li
+                  h6
+                    a(href='#') Morbi nisl mauris, consectetur at
+                li
+                  h6
+                    a(href='#') Fusce enim elit, faucibus facili
+                li
+                  h6
+                    a(href='#') In hac habitasse platea
+                li
+                  h6
+                    a(href='#') Praesent pulvinar, mi tristique 
+          .col-lg-3.col-sm-3.col-xs-12
+            .widget.la-hover
+              h5.letter-animation(data-speed='1500') PHOTO STREAM
+              .flickr-container(data-count='8', data-userid='71865026@N00', data-apikey='817d59b480172b8e698db8da5335a2d1')
+        .row
+          .col-md-12
+            .center
+              p.footer © 2017 Jose Evanan. All Rights Reserved.
+            a.footer-toggle(href='#')
+              i.fa.fa-angle-down
+    section#footer-toggle
+      ul
+        li
+          a(href='#')
+            i.fa.fa-facebook
+        li
+          a(href='#')
+            i.fa.fa-twitter
+        li
+          a(href='#')
+            i.fa.fa-tumblr
+        li
+          a(href='#')
+            i.fa.fa-linkedin
+  a.scroll-top(href='#')
+    i.fa.fa-angle-up
+  // ========= END =========
+// ========= SIDE MENU =======
+section#toggle-1.sidemenu
+  .verticalblock
+    .toggle-1-button.xbutton X
+    h5 2 Items in The Cart
+    hr
+    ul.cart-items
+      li
+        a.close-button(href='#')
+          | X
+        a(href='#')
+          | brown jeans
+          output 1 x $ 239,99
+        img(src='http://placehold.it/50x63', alt='')
+      li
+        a.close-button(href='#')
+          | X
+        a(href='#')
+          | short top
+          output 1 x $ 109,99
+        img(src='http://placehold.it/50x63', alt='')
+    output SUBTOTAL: $349,98
+    hr
+    .side-menu-button
+      a(href='shop/cart.html') VIEW CART
+    .side-menu-button
+      a(href='#') CHECKOUT
+    .links
+      h5 Other Links
+      ul
+        li
+          a(href='#') Aenean id quam lectus
+        li
+          a(href='#') Morbi nisl mauris, consectetur at
+        li
+          a(href='#') Fusce enim elit, faucibus facili
+        li
+          a(href='#') In hac habitasse platea
+        li
+          a(href='#') Praesent pulvinar, mi tristique 
+        li
+          a(href='#') Sodales blandit tellus 
+// ========= END =========
+// ======== OTHER SCRIPTS ========
+script(src='assets/js/plugins.js')
+script(src='assets/rs-plugin/js/jquery.themepunch.tools.min.js')
+script(src='assets/rs-plugin/js/jquery.themepunch.revolution.min.js')
+script(src='assets/js/scripts.js')
+// ======== /OTHER SCRIPTS ========
+
+
+
+
+

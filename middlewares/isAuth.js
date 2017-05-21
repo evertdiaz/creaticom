@@ -4,6 +4,7 @@ module.exports = (req, res, next) => {
   if (!req.session.user_id) {
     res.redirect('/auth')
   } else {
+    console.log(req.session)
     // Enviar el req.session.user_id al API y guardar el modelo general
     request(apiURL + '/user/' + req.session.user_id, (error, response, body) => {
       if (error) return res.status(500).send(error)

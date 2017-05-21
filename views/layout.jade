@@ -140,7 +140,7 @@ html
                       .menu-center
                         ul.nav-pills.navbar-right.nav
                           li
-                            a.general(href='/artistas/all') ARTISTAS
+                            a.general(href='/artista/all') ARTISTAS
                             ul.sub-menu
                               li
                                 a(href='pages/about_us.html')
@@ -203,7 +203,7 @@ html
                                   li
                                     a(href='porfolio/full_width_no_margin/4columns.html') Varios
                           li
-                            a.general(href='#') OBRAS
+                            a.general(href='/obra/all') OBRAS
                             ul.sub-menu
                               li
                                 a(href='pages/about_us.html')
@@ -268,14 +268,15 @@ html
                     .navbar-right.visible-lg
                       .menu-center
                         .input-group
-                          input.form-control(type='text', placeholder='Search for...')
-                          span.input-group-btn
-                            button.btn.btn-default(type='button') Go!
+                          form(action="/search/obra", method="GET")
+                            input.form-control(type="text" name="query" placeholder="Buscar Obra")
+                            span.input-group-btn
+                              button.btn.btn-default(type='button') Go!
                         // /input-group
                         .menu-center
                           ul.nav-pills.navbar-right.nav
                             li
-                              a.general(href='index.html') REGISTRAR/LOGIN
+                              a.general(href='/auth') REGISTRAR/LOGIN
             .mobile-menu
               .container
                 ul
