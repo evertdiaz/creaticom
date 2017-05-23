@@ -7,12 +7,14 @@ const cors = require('cors')
 const stylus = require('stylus')
 const cookieParser = require('cookie-parser')
 const cookieSession = require('cookie-session')
+const multipart = require('connect-multiparty')
 const app = express()
 
 // Configuraciones
 var compileStylus = require('./utils/stylus')
 
 // Middlewares Iniciales
+app.use(multipart())
 app.use(bp.urlencoded({ extended: false }))
 app.use(bp.json())
 app.use(morgan('dev'))
