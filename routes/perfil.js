@@ -58,7 +58,7 @@ router.post('/obra/:id', isAuth, isArtist, (req, res) => {
 })
 
 router.get('/new/obra', isAuth, isArtist, (req, res) => {
-  request(apiURL + '/category', {json: req.body}, (error, response, body) => {
+  request(apiURL + '/subcategory', {json: req.body}, (error, response, body) => {
     res.render('perfil/obra/new', {title: 'Nueva Obra', categories: response.body})
   })
 })

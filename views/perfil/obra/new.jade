@@ -16,7 +16,7 @@ block content
     input(type="text" name="month" placeholder="Mes")
     label(for="year")
     input(type="number" name="year" placeholder="Año")
-    select(name='category')
+    select(name='subcategory')
       option(value='', disabled='', selected='') Categoria
       each thing in categories
         option(value='#{thing._id}') #{thing.name}
