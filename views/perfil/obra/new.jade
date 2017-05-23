@@ -7,7 +7,7 @@ block content
     input(type="file" placeholder="sube tu archivo" name="archivo")
     input(type="submit" value="SUBIR")
 
-  form(action="/perfil/new/obra", method="POST")
+  form(action="/perfil/new/obra", method="POST", enctype='multipart/form-data')
     label(for="name")
     input(type="text" name="name" placeholder="Nombre")
     label(for="description")
@@ -16,6 +16,8 @@ block content
     input(type="text" name="month" placeholder="Mes")
     label(for="year")
     input(type="number" name="year" placeholder="Año")
+    label(for='mainImg') Imagen:
+    input(type="file" name="mainImg")
     select(name='subcategory')
       option(value='', disabled='', selected='') Categoria
       each thing in categories

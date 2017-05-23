@@ -7,6 +7,9 @@ var router = express()
 var isAuth = require('../middlewares/isAuth')
 var isArtist = require('../middlewares/isArtist')
 var fileService = azureStorage.createFileService(azureConfig.account, azureConfig.access)
+const cloudinary = require('cloudinary')
+const cloudinaryConfig = require('../config/cloudinary')
+cloudinary.config(cloudinaryConfig)
 
 router.get('/', isAuth, (req, res, next) => {
   // Aca variará por el middleware de una a otra vista
@@ -64,11 +67,14 @@ router.get('/new/obra', isAuth, isArtist, (req, res) => {
 })
 
 router.post('/new/obra', isAuth, isArtist, (req, res) => {
-  req.body.author = req.session.user_id
-  request.post(apiURL + '/obra', {json: req.body}, (error, response, body) => {
-    if (error) return res.send(error)
-    res.send(response.body)
-  })
+  cloudinary.uploader.upload(req.files.mainImg.path, (result) => {
+      req.body.author = req.session.user_id
+      req.body.mainImg = result.url
+      request.post(apiURL + '/obra', {json: req.body}, (error, response, body) => {
+        if (error) return res.send(error)
+        res.send(response.body)
+      })
+    })
 })
 
 router.post('/upload', isAuth, isArtist, (req, res) => {
