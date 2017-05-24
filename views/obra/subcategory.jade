@@ -1,0 +1,6 @@
+h3 SubCategoria: #{subcategoria}
+h1 OBRAS
+each thing in data
+  if thing.subcategory.name == subcategoria
+    img(src="#{thing.mainImg}", alt="")
+    p= thing.author.username
