@@ -23,6 +23,25 @@ block content
         li(role='presentation')
           a#suscripciones-tab(aria-controls='suscripciones', role='tab', data-toggle='tab') Suscripciones
       // Tab panes
+      p= categorias
+      each categoria in categorias
+        h1 #{categoria.name}
+        each subcategoria in subcategorias
+          if subcategoria.category.name == categoria.name
+            h2= subcategoria.name
+            each obra in obras
+              //- p= obra.subcategory.name
+              if obra.subcategory.name == subcategoria.name
+                h3= obra.name
+                img(src="#{obra.mainImg}", alt="")
+      //- each categoria in categorias
+      //-   h1= categoria.name
+      //-   each subcategoria in subcategorias
+      //-     if subcategoria.category.name == categoria.name
+      //-       h2= subcategoria.name
+      //-       each obra in obras
+      //-         if obra.subcategory.name == subcategoria.name && obra.subcategory.category.name == categoria.name
+      //-           h3= obra.name
       #tendencias.tab-content
         .tab-pane.active(role='tabpanel')
           div
@@ -536,14 +555,7 @@ section#toggle-1.sidemenu
           a(href='#') Praesent pulvinar, mi tristique 
         li
           a(href='#') Sodales blandit tellus 
-each categoria in categorias
-  h1= categoria.name
-  each subcategoria in subcategorias
-    if subcategoria.category.name == categoria.name
-      h2= subcategoria.name
-      each obra in obras
-        if obra.subcategory.name == subcategoria.name && obra.subcategory.category.name == categoria.name
-          h3= obra.name
+
 // ========= END =========
 // ======== OTHER SCRIPTS ========
 script(src='assets/js/plugins.js')
