@@ -1,18 +1,94 @@
 extends ../layout
 
 block content
-  a(href="/") INICIO
-  a(href="/artista/all") Artistas
-  a(href="/obra/all") Obras
-  a(href="/auth") Login/Registro
-  br
-  if data.alert == undefined
-    h1 Artista: #{data.username}
-    h3= data.name
-    h3= data.bio
-    each thing in data.obras
-      h3 Obra #{thing.name}
-      h3= thing.description
-      a(href="/obra/#{thing._id}") Ver Mas
-  else
-    h1= data.alert
+  section.section.section-margin
+    .container
+      .row
+        if data.alert != undefined
+          h1= data.alert
+        else
+          .col-md-9.subpage.subpage-right
+            // Nav tabs
+            ul.nav.nav-tabs(role='tablist')
+              li.active(role='presentation')
+                a#tendencias-tab(aria-controls='tendencias', role='tab', data-toggle='tab') Tendencias
+              //- li(role='presentation')
+              //-   a#suscripciones-tab(aria-controls='suscripciones', role='tab', data-toggle='tab') Suscripciones
+            // Tab panes
+            #tendencias.tab-content
+              .tab-pane.active(role='tabpanel')
+                div
+                  each categoria in categorias
+                    h3 Artes #{categoria.name}
+                    each subcategoria in subcategorias
+                      if subcategoria.category.name == categoria.name 
+                        div
+                          h5= subcategoria.name
+                          .row.lowerpad
+                            .isotope.margin
+                              each obra in obras
+                                if obra.subcategory.name == subcategoria.name
+                                  .item.col-3.art.isotope-info
+                                    a(href="/obra/#{obra._id}") 
+                                      img.img-responsive(src='#{obra.mainImg}', alt='')
+                                      .hover-info
+                                        .infobox-3
+                                          hr
+                                          h4 #{obra.name}
+                                          | #{obra.description}
+                        
+          aside.col-md-3.sidebar
+            div
+              img(src='http://placehold.it/250x250', alt='')
+            div
+              h5 #{data.name}
+              label
+                i.fa.fa-users(aria-hidden='true')
+                |  904 Seguidores
+              label
+                i.fa.fa-trophy(aria-hidden='true')
+                |  2.4K Apreciaciones
+              br
+              //- .col-lg-12.col-sm-12.col-xs-12
+              //-   a.button-3.button-round.button-xsmall.push-left(href='#')
+              //-     i.fa.fa-pencil-square-o.fa-2x.fa-fw(aria-hidden='true')
+              //-     |                                    Editar Perfil
+              //- .col-lg-12.col-sm-12.col-xs-12
+              //-   a.button-3.button-round.button-xsmall.push-left(href='#')
+              //-     i.fa.fa-cloud-upload.fa-2x.fa-fw(aria-hidden='true')
+              //-     |                                   Agregar Trabajo
+  // ============  END ==================
+  a.scroll-top(href='#')
+    i.fa.fa-angle-up
+  // ========= END =========
+  // ======== OTHER SCRIPTS ========
+  script(src='assets/js/plugins.js')
+  script(src='assets/rs-plugin/js/jquery.themepunch.tools.min.js')
+  script(src='assets/rs-plugin/js/jquery.themepunch.revolution.min.js')
+  script(src='assets/js/scripts.js')
+  // ======== /OTHER SCRIPTS ========
+
+
+
+
+
+
+
+
+
+
+  //- a(href="/") INICIO
+  //- a(href="/artista/all") Artistas
+  //- a(href="/obra/all") Obras
+  //- a(href="/auth") Login/Registro
+  //- br
+  //- if data.alert == undefined
+  //-   h1 Artista: #{data.username}
+  //-   h3= data.name
+  //-   h3= data.bio
+  //-   each thing in data.obras
+  //-     h3 Obra #{thing.name}
+  //-     h3= thing.description
+  //-     a(href="/obra/#{thing._id}") Ver Mas
+  //- else
+  //-   h1= data.alert
