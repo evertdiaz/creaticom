@@ -13,12 +13,18 @@ cloudinary.config(cloudinaryConfig)
 
 router.get('/', isAuth, (req, res, next) => {
   // Aca variará por el middleware de una a otra vista
-  res.render('perfil/artista', { title: 'Perfil' })
+  request(apiURL + '/obras/' + req.session.user_id, {json: req.body}, (error, response, body) => {
+    if (error) return res.send(error)
+    res.render('perfil/artista', { title: 'Perfil', obras: response.body })
+  })
   // res.render('perfil/usuario', { title: 'Perfil' })
 })
 
 router.get('/obras', isAuth, isArtist, (req, res, next) => {
   res.redirect('/perfil/obra/all')
+})
+router.get('/editar', isAuth, (req, res) => {
+  res.render('perfil/editar', {title: 'Editar Perfil'})
 })
 
 router.get('/obra/all', isAuth, isArtist, (req, res) => {

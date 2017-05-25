@@ -1,33 +1,61 @@
 extends ../layout
 
 block content
-  a(href="/") INICIO
-  h3 Bienvenido #{user.email}
-  if user.isArtist == true
-    a(href="/perfil/obras") Ver MIS OBRAS
-  br
-  br
-  form(action='/auth/logout', method='POST')
-    input.btn.btn-info.btn-close(type='submit', value='Cerrar Sesion')
-  h3 Editar Informacion
-  form(action='/perfil/update', method='POST')
-    label Username
-    input(type="text" value="#{user.username}" name="username")
-    label(for="name") name
-    input(type="text" value="#{user.name}" name="name")
-    label(for="bio") bio
-    input(type="text" value="#{user.bio}" name="bio")
-    label(for="email") email
-    input(type="text" value="#{user.email}" name="email")
-    label(for="password") password
-    input(type="password" value="#{user.password}" name="password")
-    label(for="phone") phone
-    input(type="number" value="#{user.phone}" name="phone")
-    if user.isArtist == true
-      label(for="fanpage") fanpage
-      input(type="text" value="#{user.fanpage}" name="fanpage")
-      label(for="portafolio") portafolio
-      input(type="text" value="#{user.portafolio}" name="portafolio")
-      label(for="web") web
-      input(type="text" value="#{user.web}" name="web")
-    input(type="submit" value="Guardar")
+  section.section.section-margin
+    .container
+      .row
+        .col-md-9.subpage.subpage-right
+          // Nav tabs
+          ul.nav.nav-tabs(role='tablist')
+            li.active(role='presentation')
+              a#tendencias-tab(aria-controls='tendencias', role='tab', data-toggle='tab') Tendencias
+            //- li(role='presentation')
+            //-   a#suscripciones-tab(aria-controls='suscripciones', role='tab', data-toggle='tab') Suscripciones
+          // Tab panes
+          #tendencias.tab-content
+            .tab-pane.active(role='tabpanel')
+              div
+                div
+                  .row.lowerpad
+                    .isotope.margin
+                      each obra in obras
+                        .item.col-3.art.isotope-info
+                          a(href="/perfil/obra/#{obra._id}") 
+                            img.img-responsive(src='#{obra.mainImg}', alt='')
+                            .hover-info
+                              .infobox-3
+                                hr
+                                h4 #{obra.name}
+                                | #{obra.description}
+                    
+        aside.col-md-3.sidebar
+          div
+            img(src='http://placehold.it/250x250', alt='')
+          div
+            h5 #{user.username}
+            label
+              i.fa.fa-users(aria-hidden='true')
+              |  904 Seguidores
+            label
+              i.fa.fa-trophy(aria-hidden='true')
+              |  2.4K Apreciaciones
+            br
+            .col-lg-12.col-sm-12.col-xs-12
+              a.button-3.button-round.button-xsmall.push-left(href='/perfil/editar')
+                i.fa.fa-pencil-square-o.fa-2x.fa-fw(aria-hidden='true')
+                |                                    Editar Perfil
+            .col-lg-12.col-sm-12.col-xs-12
+              a.button-3.button-round.button-xsmall.push-left(href='/perfil/new/obra')
+                i.fa.fa-cloud-upload.fa-2x.fa-fw(aria-hidden='true')
+                |                                   Agregar Trabajo
+  // ============  END ==================
+  a.scroll-top(href='#')
+    i.fa.fa-angle-up
+  // ========= END =========
+  // ======== OTHER SCRIPTS ========
+  script(src='assets/js/plugins.js')
+  script(src='assets/rs-plugin/js/jquery.themepunch.tools.min.js')
+  script(src='assets/rs-plugin/js/jquery.themepunch.revolution.min.js')
+  script(src='assets/js/scripts.js')
+  // ======== /OTHER SCRIPTS ========
+

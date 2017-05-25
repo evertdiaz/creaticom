@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  a(href="/") INICIO
+  br
+  br
+  form(action='/auth/logout', method='POST')
+    input.btn.btn-info.btn-close(type='submit', value='Cerrar Sesion')
+  h3 Editar Informacion
+  form(action='/perfil/update', method='POST')
+    label Username
+    input(type="text" value="#{user.username}" name="username")
+    label(for="name") name
+    input(type="text" value="#{user.name}" name="name")
+    label(for="bio") bio
+    input(type="text" value="#{user.bio}" name="bio")
+    label(for="email") email
+    input(type="text" value="#{user.email}" name="email")
+    label(for="password") password
+    input(type="password" value="#{user.password}" name="password")
+    label(for="phone") phone
+    input(type="number" value="#{user.phone}" name="phone")
+    if user.isArtist == true
+      label(for="fanpage") fanpage
+      input(type="text" value="#{user.fanpage}" name="fanpage")
+      label(for="portafolio") portafolio
+      input(type="text" value="#{user.portafolio}" name="portafolio")
+      label(for="web") web
+      input(type="text" value="#{user.web}" name="web")
+    input(type="submit" value="Guardar")
