@@ -1,19 +1,48 @@
 extends ../layout
 
 block content
-  a(href="/") INICIO
-  h2 Sign In
-  form(action='/auth/signin', method='POST')
-    input(type='text' placeholder='user' name='user')
-    input(type='password' placeholder='password' name='password')
-    input(type='submit' value='enviar')
+  // ========= TABS ========
+  section.section.section-margin-top
+    .container
+      .row
+        .col-md-12
+          #table-3.select-table.table-h.table-2
+            nav
+              ul
+                li.active
+                  a(href='#table-3-1') Ingresar
+                li
+                  a(href='#table-3-2') Registrarse
+            ul
+              li#table-3-1.active
+                .access
+                  h4 ¡Accede a tu cuenta, continúa descubriendo y creando!
+                  form(action='/auth/signin', method='POST')
+                    label(for='username') Nombre de Usuario o Correo
+                    input(type='text', name='user')
+                    label(for='password') Contraseña
+                    input(type='password', name='password')
+                    input(type='submit', value='Ingresar')
+              li#table-3-2
+                .access
+                  h4 ¡Registrate! Descubre y crea contenido
+                  form(action='/auth/signup', method='POST')
+                    label(for='username') Nombre de Usuario
+                    input(type='text', name='username')
+                    label(for='email') Correo
+                    input(type='email', name='email')
+                    label(for='name') Nombre y Apellidos
+                    input(type='text', name='name')
+                    label(for='password') Contraseña
+                    input(type='password', name='contraseña')
+                    input(type='checkbox', name='isArtist', value='1')
+                    |  Soy Artista
+                    input(type='submit', value='Ingresar')
+  // ======= END TABS =======
+  // ======== OTHER SCRIPTS ========
+  script(src='./assets/js/plugins.js')
+  script(src='./assets/rs-plugin/js/jquery.themepunch.tools.min.js')
+  script(src='./assets/rs-plugin/js/jquery.themepunch.revolution.min.js')
+  script(src='./assets/js/scripts.js')
+  // ======== /OTHER SCRIPTS ========
 
-  h2 Sign Up
-  form(action='/auth/signup', method='POST')
-    input(type='text' placeholder='usuario' name='username')
-    input(type='email' placeholder='email' name='email')
-    input(type='checkbox' value=1 name='isArtist')
-    input(type='password' placeholder='contraseña' name='password')   
-    input(type='submit' value='enviar')
-  br
-  a(href="/perfil") Perfil
